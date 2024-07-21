@@ -4,9 +4,9 @@
 
 @layer base {
     :root {
-        /* Màu các yếu tố chính*/
+        /* Màu components chính */
         --background: #ffffff;
-        --foreground: #ffffff;
+        --foreground: #000000;
         --card: #ffffff;
         --card-foreground: #ffffff;
         --popover: #ffffff;
@@ -21,23 +21,23 @@
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
-        /* Màu các yếu tố phụ */
+        /* Màu components phụ */
         --border: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
         --ring: #ffffff;
-
-        /* Chưa biết để làm gì */
+        /* Bán kính góc */
         --radius: 0.5rem;
-        --chart-1: 12 76% 61%;
-        --chart-2: 173 58% 39%;
-        --chart-3: 197 37% 24%;
-        --chart-4: 43 74% 66%;
-        --chart-5: 27 87% 67%;
+        /* Biểu đồ */
+        --chart-1: #ffffff;
+        --chart-2: #ffffff;
+        --chart-3: #ffffff;
+        --chart-4: #ffffff;
+        --chart-5: #ffffff;
     }
 
     .Light {
-        /* Màu các yếu tố chính*/
+        /* Màu components chính */
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;
@@ -54,54 +54,52 @@
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
-        /* Màu các yếu tố phụ */
+        /* Màu components phụ */
         --border: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
         --ring: #ffffff;
-
-        /* Chưa biết để làm gì */
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        /* Biểu đồ */
+        --chart-1: #ffffff;
+        --chart-2: #ffffff;
+        --chart-3: #ffffff;
+        --chart-4: #ffffff;
+        --chart-5: #ffffff;
     }
 
     .Dark {
-        /* Màu các yếu tố chính*/
-        --background: #020021;
-        --foreground: #0b2036;
-        --card: #f8e6c1;
+        /* Màu components chính */
+        --background: #ffffff;
+        --foreground: #000000;
+        --card: #ffffff;
         --card-foreground: #ffffff;
-        --popover: #f8e6c1;
+        --popover: #ffffff;
         --popover-foreground: #ffffff;
-        --primary: #e0e0e0;
-        --primary-foreground: #1a1a2a;
+        --primary: #000000;
+        --primary-foreground: #ffffff;
         --secondary: #ffffff;
-        --secondary-foreground: #010011;
+        --secondary-foreground: #ffffff;
         --muted: #ffffff;
         --muted-foreground: #ffffff;
         --accent: #ffffff;
         --accent-foreground: #ffffff;
-        --destructive: #0a0020;
-        --destructive-foreground: #040404;
-        /* Màu các yếu tố phụ */
+        --destructive: #ffffff;
+        --destructive-foreground: #ffffff;
+        /* Màu components phụ */
         --border: #ffffff;
-        --underline: #504663;
+        --underline: #ffffff;
         --input: #ffffff;
         --ring: #ffffff;
-
-        /* Chưa biết để làm gì */
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        /* Biểu đồ */
+        --chart-1: #ffffff;
+        --chart-2: #ffffff;
+        --chart-3: #ffffff;
+        --chart-4: #ffffff;
+        --chart-5: #ffffff;
     }
 
     .Spring {
-        /* Màu các yếu tố chính*/
+        /* Màu components chính */
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;
@@ -118,22 +116,21 @@
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
-        /* Màu các yếu tố phụ */
+        /* Màu components phụ */
         --border: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
         --ring: #ffffff;
-
-        /* Chưa biết để làm gì */
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        /* Biểu đồ */
+        --chart-1: #ffffff;
+        --chart-2: #ffffff;
+        --chart-3: #ffffff;
+        --chart-4: #ffffff;
+        --chart-5: #ffffff;
     }
 
     .Summer {
-        /* Màu các yếu tố chính*/
+        /* Màu components chính */
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;
@@ -150,22 +147,21 @@
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
-        /* Màu các yếu tố phụ */
+        /* Màu components phụ */
         --border: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
         --ring: #ffffff;
-
-        /* Chưa biết để làm gì */
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        /* Biểu đồ */
+        --chart-1: #ffffff;
+        --chart-2: #ffffff;
+        --chart-3: #ffffff;
+        --chart-4: #ffffff;
+        --chart-5: #ffffff;
     }
 
     .Fall {
-        /* Màu các yếu tố chính*/
+        /* Màu components chính */
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;
@@ -182,22 +178,21 @@
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
-        /* Màu các yếu tố phụ */
+        /* Màu components phụ */
         --border: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
         --ring: #ffffff;
-
-        /* Chưa biết để làm gì */
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        /* Biểu đồ */
+        --chart-1: #ffffff;
+        --chart-2: #ffffff;
+        --chart-3: #ffffff;
+        --chart-4: #ffffff;
+        --chart-5: #ffffff;
     }
 
     .Winter {
-        /* Màu các yếu tố chính*/
+        /* Màu components chính */
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;
@@ -214,18 +209,17 @@
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
-        /* Màu các yếu tố phụ */
+        /* Màu components phụ */
         --border: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
         --ring: #ffffff;
-
-        /* Chưa biết để làm gì */
-        --chart-1: 220 70% 50%;
-        --chart-2: 160 60% 45%;
-        --chart-3: 30 80% 55%;
-        --chart-4: 280 65% 60%;
-        --chart-5: 340 75% 55%;
+        /* Biểu đồ */
+        --chart-1: #ffffff;
+        --chart-2: #ffffff;
+        --chart-3: #ffffff;
+        --chart-4: #ffffff;
+        --chart-5: #ffffff;
     }
 }
 

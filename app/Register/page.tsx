@@ -1,17 +1,20 @@
 import Image from "next/image";
 import logo from "@/public/image-removebg-preview (11).png";
 import Link from "next/link";
-import { RegLogStyle } from "@/components/Style";
-import { RegisterForm } from "@/components/Form";
+import { RegLogStyle } from "@/Page-Components/Style";
+import { RegisterForm } from "@/Page-Components/Form";
 
 const page = () => {
     return (
         <div className={`${RegLogStyle.center} flex-col`}>
             <div className={`${RegLogStyle.center} flex-col`}>
-                <Image src={logo} alt="Visual Subject Learning" width={60} />
-                <h1 className="font-[600] text-[30px] mt-[25px] text-primary">
-                    Sign up
-                </h1>
+                <Image
+                    src={logo}
+                    alt="Visual Subject Learning"
+                    width={60}
+                    priority
+                />
+                <h1 className="font-[600] text-[30px] mt-[25px]">Sign up</h1>
             </div>
 
             <div

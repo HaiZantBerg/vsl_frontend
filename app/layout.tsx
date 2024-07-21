@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { NavBar, Footer } from "@/components/common";
-import Provider from "@/redux/provider";
+import { NavBar, Footer, SideBar } from "@/Page-Components/common";
 import "./globals.css";
-import { Setup } from "@/components/utils";
-import "react-toastify/dist/ReactToastify.css";
-import { ThemeProvider } from "@/components/ui/themeProvider";
+import { Setup } from "@/Page-Components/utils";
+import "react-toastify/ReactToastify.min.css";
+import { ThemeProvider } from "@/Page-Components/ui/themeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,29 +19,28 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en">
+        <html lang="en" suppressHydrationWarning>
             <body className={`${inter.className}`}>
-                <Provider>
-                    <Setup />
-                    <ThemeProvider
-                        attribute="class"
-                        defaultTheme="Dark"
-                        enableSystem
-                        themes={[
-                            "Light",
-                            "Dark",
-                            "Spring",
-                            "Summer",
-                            "Fall",
-                            "Winter",
-                        ]}
-                        disableTransitionOnChange
-                    >
-                        <NavBar />
-                        {children}
-                        <Footer />
-                    </ThemeProvider>
-                </Provider>
+                <Setup />
+                <ThemeProvider
+                    attribute="class"
+                    defaultTheme="Dark"
+                    enableSystem
+                    themes={[
+                        "Light",
+                        "Dark",
+                        "Spring",
+                        "Summer",
+                        "Fall",
+                        "Winter",
+                    ]}
+                    disableTransitionOnChange
+                >
+                    <NavBar />
+                    <SideBar />
+                    {children}
+                    <Footer />
+                </ThemeProvider>
             </body>
         </html>
     );

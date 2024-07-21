@@ -1,11 +1,10 @@
-import { useRegisterMutation } from "@/redux/features/authApiSlice";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useState, ChangeEvent, FormEvent } from "react";
+import { register } from "@/axios/postData";
 
 export default function useRegister() {
     const router = useRouter();
-    const [register, { isLoading }] = useRegisterMutation();
 
     const [formData, setFormData] = useState({
         username: "",
@@ -24,15 +23,13 @@ export default function useRegister() {
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
-
         register({ username, email, password, re_password })
-            .unwrap()
             .then(() => {
-                toast.success("Vui lòng kiểm tra email để xác minh tài khoản.");
-                router.push("/Login");
+                toast.success("Đăng kí thành công");
+                router.push("/Home");
             })
-            .catch(() => {
-                toast.error("Đăng ký tài khoản thất bại");
+            .catch((err) => {
+                toast.error(err.response.data.status);
             });
     };
     return {
@@ -40,7 +37,6 @@ export default function useRegister() {
         email,
         password,
         re_password,
-        isLoading,
         onChange,
         onSubmit,
     };

@@ -1,19 +1,12 @@
 "use client";
 
 import { useRegister } from "@/hooks";
-import { Form } from "@/components/Form";
-import { RegLogStyle } from "@/components/Style";
+import { Form } from "@/Page-Components/Form";
+import { RegLogStyle } from "@/Page-Components/Style";
 
 export default function RegisterForm() {
-    const {
-        username,
-        email,
-        password,
-        re_password,
-        isLoading,
-        onChange,
-        onSubmit,
-    } = useRegister();
+    const { username, email, password, re_password, onChange, onSubmit } =
+        useRegister();
 
     const config = [
         {
@@ -24,7 +17,7 @@ export default function RegisterForm() {
             value: username,
             type: "text",
             labelId: "username",
-            required: true,
+            // required: true,
         },
         {
             labelText: "Địa chỉ email",
@@ -34,17 +27,17 @@ export default function RegisterForm() {
             value: email,
             type: "text",
             labelId: "email",
-            required: true,
+            // required: true,
         },
         {
-            labelText: "Nhập mật khẩu",
+            labelText: "Mật khẩu",
             divStyle: `${RegLogStyle.divFormStyle}`,
             labelStyle: `${RegLogStyle.labelTextStyle}`,
             inputStyle: `${RegLogStyle.forminput}`,
             value: password,
             type: "text",
             labelId: "password",
-            required: true,
+            // required: true,
         },
         {
             labelText: "Xác nhận mật khẩu",
@@ -63,9 +56,8 @@ export default function RegisterForm() {
             config={config}
             onChange={onChange}
             onSubmit={onSubmit}
-            isLoading={isLoading}
             btnText="Đăng kí"
-            formStyle="flex flex-col gap-[25px] h-full w-full"
+            formStyle="flex flex-col justify-center gap-[25px] h-full w-full"
         />
     );
 }

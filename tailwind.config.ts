@@ -1,18 +1,22 @@
 import type { Config } from "tailwindcss";
-const { fontFamily } = require("tailwindcss/defaultTheme");
 
-const config: Config = {
+const config = {
     darkMode: ["class"],
-    content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
+    content: [
+        "./app/**/*.{js,ts,jsx,tsx,mdx}",
+        "./Page-Components/**/*.{js,ts,jsx,tsx,mdx}",
+        "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    ],
+    prefix: "",
     theme: {
-        container: {
-            center: true,
-            padding: "2rem",
-            screens: {
-                "2xl": "1400px",
-            },
-        },
         extend: {
+            container: {
+                center: true,
+                padding: "2rem",
+                screens: {
+                    "2xl": "1400px",
+                },
+            },
             colors: {
                 border: "var(--border)",
                 underline: "var(--underline)",
@@ -45,17 +49,14 @@ const config: Config = {
                     foreground: "var(--popover-foreground)",
                 },
                 card: {
-                    DEFAULT: "hsl(var(--card))",
-                    foreground: "hsl(var(--card-foreground))",
+                    DEFAULT: "var(--card)",
+                    foreground: "var(--card-foreground)",
                 },
             },
             borderRadius: {
-                lg: `var(--radius)`,
-                md: `calc(var(--radius) - 2px)`,
-                sm: "calc(var(--radius) - 4px)",
-            },
-            fontFamily: {
-                sans: ["var(--font-sans)", ...fontFamily.sans],
+                lg: "var(--radius)",
+                md: "calcvar(--radius) - 2px)",
+                sm: "calcvar(--radius) - 4px)",
             },
             keyframes: {
                 "accordion-down": {
@@ -74,5 +75,6 @@ const config: Config = {
         },
     },
     plugins: [require("tailwindcss-animate")],
-};
+} satisfies Config;
+
 export default config;

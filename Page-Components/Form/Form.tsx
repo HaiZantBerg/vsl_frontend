@@ -1,6 +1,6 @@
 import { FormEvent, ChangeEvent } from "react";
-import { Input } from "@/components/Form";
-import { Spinner } from "@/components/common";
+import { Input } from "@/Page-Components/Form";
+import { Spinner } from "@/Page-Components/common";
 
 interface Config {
     labelText: string;
@@ -23,7 +23,6 @@ interface Props {
     config: Config[];
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     onSubmit: (event: FormEvent<HTMLFormElement>) => void;
-    isLoading: boolean;
     btnText: string;
     formStyle: string;
 }
@@ -32,7 +31,6 @@ export default function Form({
     config,
     onChange,
     onSubmit,
-    isLoading,
     btnText,
     formStyle,
 }: Props) {
@@ -57,11 +55,9 @@ export default function Form({
             <div className="w-full">
                 <button
                     type="submit"
-                    className="flex justify-center items-center w-full h-10 rounded-md font-[500] p-1 bg-primary-foreground text-secondary 
-                    hover:bg-secondary-foreground"
-                    disabled={isLoading}
+                    className="flex justify-center w-full h-10 rounded-md font-[500] p-1"
                 >
-                    {isLoading ? <Spinner sm /> : `${btnText}`}
+                    {`${btnText}`}
                 </button>
             </div>
         </form>

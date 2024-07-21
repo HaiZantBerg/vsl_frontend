@@ -1,26 +1,25 @@
 "use client";
 
 import { useLogin } from "@/hooks";
-import { Form } from "@/components/Form";
-import { RegLogStyle } from "@/components/Style";
+import { Form } from "@/Page-Components/Form";
+import { RegLogStyle } from "@/Page-Components/Style";
 
 export default function LoginForm() {
-    const { email_or_username, password, isLoading, onChange, onSubmit } =
-        useLogin();
+    const { username, password, onChange, onSubmit } = useLogin();
 
     const config = [
         {
-            labelText: "Nhập tên tài khoản",
+            labelText: "Tên tài khoản",
             divStyle: ``,
             labelStyle: "font-[450]",
             inputStyle: `${RegLogStyle.forminput}`,
-            value: email_or_username,
+            value: username,
             type: "text",
-            labelId: "email_or_username",
+            labelId: "username",
             required: true,
         },
         {
-            labelText: "Nhập mật khẩu",
+            labelText: "Mật khẩu",
             divStyle: ``,
             labelStyle: "font-[450]",
             inputStyle: `${RegLogStyle.forminput}`,
@@ -32,7 +31,7 @@ export default function LoginForm() {
                 divStyle: "w-full flex justify-end",
                 linkURL: "/reset-password",
                 linkText: "Quên mật khẩu?",
-                linkStyle: "text-secondary-foreground font-[525]",
+                linkStyle: "font-[525]",
             },
         },
     ];
@@ -42,9 +41,8 @@ export default function LoginForm() {
             config={config}
             onChange={onChange}
             onSubmit={onSubmit}
-            isLoading={isLoading}
             btnText="Đăng nhập"
-            formStyle="flex flex-col gap-[25px] h-full w-full"
+            formStyle="flex flex-col justify-center gap-[25px] h-full w-full"
         />
     );
 }
