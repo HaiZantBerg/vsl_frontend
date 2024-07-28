@@ -11,7 +11,7 @@ export default function LoginForm() {
         {
             labelText: "Tên tài khoản",
             divStyle: ``,
-            labelStyle: "font-[450]",
+            labelStyle: `${RegLogStyle.labelTextStyle}`,
             inputStyle: `${RegLogStyle.forminput}`,
             value: username,
             type: "text",
@@ -21,7 +21,7 @@ export default function LoginForm() {
         {
             labelText: "Mật khẩu",
             divStyle: ``,
-            labelStyle: "font-[450]",
+            labelStyle: `${RegLogStyle.labelTextStyle}`,
             inputStyle: `${RegLogStyle.forminput}`,
             value: password,
             type: "text",

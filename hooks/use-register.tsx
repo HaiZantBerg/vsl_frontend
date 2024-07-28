@@ -2,6 +2,7 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { register } from "@/axios/postData";
+import { setToken } from "@/authentication/actions";
 
 export default function useRegister() {
     const router = useRouter();
@@ -24,9 +25,10 @@ export default function useRegister() {
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         register({ username, email, password, re_password })
-            .then(() => {
+            .then(async (data) => {
                 toast.success("Đăng kí thành công");
-                router.push("/Home");
+                await setToken(data.access, data.refresh);
+                router.push("/home");
             })
             .catch((err) => {
                 toast.error(err.response.data.status);

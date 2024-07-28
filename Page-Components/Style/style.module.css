@@ -4,10 +4,10 @@
     align-items: center;
 }
 .forminput {
-    @apply pl-1 h-9 w-full outline-none rounded-[10px];
+    @apply pl-1 h-9 w-full outline-none rounded-card;
 }
 .labelTextStyle {
-    @apply font-[500];
+    @apply font-header3_5 text-accent;
 }
 .divFormStyle {
     @apply no-underline;

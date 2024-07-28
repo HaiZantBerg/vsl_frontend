@@ -5,6 +5,7 @@
 @layer base {
     :root {
         /* Màu components chính */
+        --footer: #ffffff;
         --background: #ffffff;
         --foreground: #000000;
         --card: #ffffff;
@@ -38,6 +39,7 @@
 
     .Light {
         /* Màu components chính */
+        --footer: #ffffff;
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;
@@ -69,9 +71,10 @@
 
     .Dark {
         /* Màu components chính */
+        --footer: #9090905c;
         --background: #ffffff;
         --foreground: #000000;
-        --card: #ffffff;
+        --card: #000000;
         --card-foreground: #ffffff;
         --popover: #ffffff;
         --popover-foreground: #ffffff;
@@ -79,9 +82,9 @@
         --primary-foreground: #ffffff;
         --secondary: #ffffff;
         --secondary-foreground: #ffffff;
-        --muted: #ffffff;
-        --muted-foreground: #ffffff;
-        --accent: #ffffff;
+        --muted: #3939394b;
+        --muted-foreground: #121212e3;
+        --accent: #000000f2;
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
@@ -100,6 +103,7 @@
 
     .Spring {
         /* Màu components chính */
+        --footer: #ffffff;
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;
@@ -131,6 +135,7 @@
 
     .Summer {
         /* Màu components chính */
+        --footer: #ffffff;
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;
@@ -162,6 +167,7 @@
 
     .Fall {
         /* Màu components chính */
+        --footer: #ffffff;
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;
@@ -193,6 +199,7 @@
 
     .Winter {
         /* Màu components chính */
+        --footer: #ffffff;
         --background: #ffffff;
         --foreground: #ffffff;
         --card: #ffffff;

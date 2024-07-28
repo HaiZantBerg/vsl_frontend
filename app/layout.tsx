@@ -20,7 +20,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${inter.className}`}>
+            <body
+                className={`${inter.className} flex flex-col w-[100vw] h-[100vh] overflow-y-auto overflow-x-hidden`}
+            >
                 <Setup />
                 <ThemeProvider
                     attribute="class"
@@ -36,10 +38,13 @@ export default function RootLayout({
                     ]}
                     disableTransitionOnChange
                 >
-                    <NavBar />
-                    <SideBar />
-                    {children}
-                    <Footer />
+                    <div className="">
+                        <NavBar />
+                    </div>
+                    <div className="pt-16 pb-20 z-0 w-full">{children}</div>
+                    <div>
+                        <Footer />
+                    </div>
                 </ThemeProvider>
             </body>
         </html>

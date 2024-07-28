@@ -9,7 +9,29 @@ const config = {
     ],
     prefix: "",
     theme: {
+        fontSize: {
+            lg: "30px",
+            md: "20px",
+            sm: "10px",
+        },
         extend: {
+            borderRadius: {
+                card: "10px",
+                button: "12.5px",
+            },
+            fontSize: {
+                xl: "40px",
+                mdpl: "25px",
+                smpl: "15px",
+                xs: "5px",
+            },
+            fontWeight: {
+                header1: "650",
+                header2: "600",
+                header3: " 550",
+                header3_5: "525",
+                header4: "500",
+            },
             container: {
                 center: true,
                 padding: "2rem",
@@ -18,6 +40,7 @@ const config = {
                 },
             },
             colors: {
+                footer: "var(--footer)",
                 border: "var(--border)",
                 underline: "var(--underline)",
                 input: "var(--input)",
@@ -52,11 +75,6 @@ const config = {
                     DEFAULT: "var(--card)",
                     foreground: "var(--card-foreground)",
                 },
-            },
-            borderRadius: {
-                lg: "var(--radius)",
-                md: "calcvar(--radius) - 2px)",
-                sm: "calcvar(--radius) - 4px)",
             },
             keyframes: {
                 "accordion-down": {

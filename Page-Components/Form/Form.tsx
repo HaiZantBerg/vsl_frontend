@@ -55,7 +55,7 @@ export default function Form({
             <div className="w-full">
                 <button
                     type="submit"
-                    className="flex justify-center w-full h-10 rounded-md font-[500] p-1"
+                    className="flex justify-center w-full h-10 rounded-card font-header1 p-1 bg-accent items-center text-accent-foreground"
                 >
                     {`${btnText}`}
                 </button>
