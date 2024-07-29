@@ -21,14 +21,15 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${inter.className} flex flex-col w-[100vw] h-[100vh] overflow-y-auto overflow-x-hidden`}
+                className={`${inter.className} w-[100vw] h-[100vh] overflow-y-auto overflow-x-hidden`}
             >
                 <Setup />
                 <ThemeProvider
                     attribute="class"
-                    defaultTheme="Dark"
+                    defaultTheme="System"
                     enableSystem
                     themes={[
+                        "System",
                         "Light",
                         "Dark",
                         "Spring",
@@ -38,11 +39,13 @@ export default function RootLayout({
                     ]}
                     disableTransitionOnChange
                 >
-                    <div className="">
-                        <NavBar />
+                    <div className=" flex flex-col w-full">
+                        <div className="z-10">
+                            <NavBar />
+                        </div>
+                        <div className="w-full z-0">{children}</div>
                     </div>
-                    <div className="pt-16 pb-20 z-0 w-full">{children}</div>
-                    <div>
+                    <div className="mt-20">
                         <Footer />
                     </div>
                 </ThemeProvider>

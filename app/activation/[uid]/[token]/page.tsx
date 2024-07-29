@@ -14,15 +14,16 @@ interface Props {
 export default function Activation({ params }: Props) {
     const router = useRouter();
 
+    console.log(params.uid, params.token);
+
     account_activation(params.uid, params.token)
         .then(() => {
             toast.success("Kích hoạt thành công");
+            router.push("/home");
         })
         .catch(() => {
             toast.error("Kích hoạt thất bại");
-        })
-        .finally(() => {
-            router.push("/login");
+            router.push("/register");
         });
 
     return (

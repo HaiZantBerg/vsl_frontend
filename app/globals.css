@@ -4,21 +4,20 @@
 
 @layer base {
     :root {
-        /* Màu components chính */
-        --footer: #ffffff;
+        --footer: #9090905c;
         --background: #ffffff;
         --foreground: #000000;
-        --card: #ffffff;
+        --card: #000000;
         --card-foreground: #ffffff;
         --popover: #ffffff;
         --popover-foreground: #ffffff;
-        --primary: #ffffff;
+        --primary: #000000;
         --primary-foreground: #ffffff;
         --secondary: #ffffff;
         --secondary-foreground: #ffffff;
-        --muted: #ffffff;
-        --muted-foreground: #ffffff;
-        --accent: #ffffff;
+        --muted: #3939394b;
+        --muted-foreground: #121212e3;
+        --accent: #000000f2;
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
@@ -27,8 +26,6 @@
         --underline: #ffffff;
         --input: #ffffff;
         --ring: #ffffff;
-        /* Bán kính góc */
-        --radius: 0.5rem;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;

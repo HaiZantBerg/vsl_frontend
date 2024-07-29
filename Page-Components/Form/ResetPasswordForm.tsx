@@ -2,7 +2,7 @@
 
 import { useResetPassword } from "@/hooks";
 import { Form } from "@/Page-Components/Form";
-import { RegLogStyle } from "@/Page-Components/Style";
+import { RegLogStyle } from "@/Style";
 
 export default function LoginForm() {
     const { email, onChange, onSubmit } = useResetPassword();

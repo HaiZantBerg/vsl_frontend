@@ -20,6 +20,8 @@ const config = {
                 button: "12.5px",
             },
             fontSize: {
+                ms: "100px",
+                gt: "75px",
                 xl: "40px",
                 mdpl: "25px",
                 smpl: "15px",
@@ -31,6 +33,7 @@ const config = {
                 header3: " 550",
                 header3_5: "525",
                 header4: "500",
+                body1: "450",
             },
             container: {
                 center: true,

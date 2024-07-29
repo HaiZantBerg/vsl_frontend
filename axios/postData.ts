@@ -25,7 +25,7 @@ export const register = async ({
 };
 
 export const login = async ({ username, password }: Props) => {
-    const res = await AxiosInstance.post("jwt/create/", {
+    const res = await AxiosInstance.post("accounts/jwt/create/", {
         username,
         password,
     });

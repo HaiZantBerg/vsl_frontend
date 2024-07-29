@@ -1,4 +1,4 @@
-import { RegLogStyle } from "@/Page-Components/Style";
+import { RegLogStyle } from "@/Style";
 import Image from "next/image";
 import logo from "@/public/image-removebg-preview (11).png";
 import Link from "next/link";
@@ -6,7 +6,7 @@ import { LoginForm } from "@/Page-Components/Form";
 
 export default function Login() {
     return (
-        <div className={`${RegLogStyle.center} flex-col`}>
+        <div className={`${RegLogStyle.center} flex-col mt-10`}>
             <div className={`${RegLogStyle.center} flex-col`}>
                 <Image
                     src={logo}
