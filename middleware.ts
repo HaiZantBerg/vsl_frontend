@@ -1,55 +1,86 @@
 import { NextResponse, NextRequest } from "next/server";
 import { jwtDecode } from "jwt-decode";
 import { refresh_access_token } from "./axios/postData";
-import { cookies } from "next/headers";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "./authentication/token";
 
 export async function middleware(request: NextRequest) {
-    const redirect = NextResponse.redirect(new URL("/login", request.url));
-    const isAuthorized = () => {
-        if (request.nextUrl.pathname == "/home") {
-            return NextResponse.redirect(new URL("/home", request.url));
-        }
-        return NextResponse.next();
-    };
-    const accessToken = request.cookies.get(ACCESS_TOKEN)?.value;
+    const check =
+        request.nextUrl.pathname === "/login" ||
+        request.nextUrl.pathname === "/register";
+    if (!check) {
+        const accessToken = request.cookies.get(ACCESS_TOKEN)?.value;
+        const refreshToken = request.cookies.get(REFRESH_TOKEN)?.value;
 
-    const reqRefresh = async (refreshToken: string | undefined) => {
-        if (!refreshToken) {
-            return redirect;
-        }
-        try {
-            const res = await refresh_access_token(refreshToken);
-            if (res.status === 200) {
-                const getCookies = cookies();
-                getCookies.set(ACCESS_TOKEN, res.data.access);
-                return isAuthorized;
+        const redirect = () => {
+            if (check && accessToken) {
+                return NextResponse.next();
             }
-        } catch (err) {
-            console.log(err);
-            return redirect;
-        }
-    };
+            if (request.nextUrl.pathname === "/home") {
+                return NextResponse.redirect(new URL("/", request.url));
+            }
+            return NextResponse.redirect(new URL("/login", request.url));
+        };
+        const isAuthorized = (newAccessToken?: string) => {
+            const response = NextResponse.next();
+            if (check) {
+                return NextResponse.redirect(new URL("/home", request.url));
+            }
 
-    const isAccessable = async () => {
-        if (!accessToken) {
-            return redirect;
-        }
-        const decodedToken = jwtDecode<{ exp: number }>(accessToken);
-        const tokenExpiration: number = decodedToken.exp;
-        const now = Date.now() / 1000;
-        if (tokenExpiration < now - 1000) {
-            const refreshToken = request.cookies.get(REFRESH_TOKEN)?.value;
-            await reqRefresh(refreshToken);
-        }
-        return isAuthorized;
-    };
-    return isAccessable().catch((err) => {
-        console.log(err);
-        return redirect;
-    });
+            if (newAccessToken) {
+                const decodedAccessToken = jwtDecode<{ exp: number }>(
+                    newAccessToken
+                );
+                const accessTokenExpiration: number = decodedAccessToken.exp;
+                response.cookies.set(ACCESS_TOKEN, newAccessToken, {
+                    expires: accessTokenExpiration * 1000,
+                    secure: true,
+                    httpOnly: true,
+                });
+            }
+            return response;
+        };
+
+        const reqRefresh = async (refreshToken: string | undefined) => {
+            if (!refreshToken) {
+                return redirect();
+            }
+            try {
+                const res = await refresh_access_token(refreshToken);
+                if (res.status === 200) {
+                    return isAuthorized(res.data.access);
+                }
+                return redirect();
+            } catch (err) {
+                console.error(err);
+                return NextResponse.redirect(new URL("/login", request.url));
+            }
+        };
+
+        const isAccessable = async () => {
+            if (!accessToken && !refreshToken) {
+                return redirect();
+            }
+            if (!accessToken) {
+                return reqRefresh(refreshToken);
+            }
+            return isAuthorized();
+        };
+        return await isAccessable().catch((err) => {
+            console.log(err);
+            return redirect();
+        });
+    }
+    return NextResponse.next();
 }
 
 export const config = {
-    matcher: ["/home", "/user", "/courses", "/research-room", "/community"],
+    matcher: [
+        "/home",
+        "/user",
+        "/courses/:path*",
+        "/research-room/:path*",
+        "/community/:path*",
+        "/login",
+        "/register",
+    ],
 };

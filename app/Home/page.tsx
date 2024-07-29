@@ -4,7 +4,9 @@ import { LogOut } from "@/Page-Components/common";
 export default function page() {
     return (
         <div>
-            <div></div>
+            <div>
+                <LogOut />
+            </div>
         </div>
     );
 }

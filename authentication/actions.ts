@@ -1,11 +1,25 @@
 "use server";
 
 import { cookies } from "next/headers";
+import { jwtDecode } from "jwt-decode";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "./token";
 
 export async function setToken(access: string, refresh: string) {
-    cookies().set(ACCESS_TOKEN, access);
-    cookies().set(REFRESH_TOKEN, refresh);
+    const decodedAccessToken = jwtDecode<{ exp: number }>(access);
+    const accessTokenExpiration: number = decodedAccessToken.exp * 10000;
+    const decodedRefreshToken = jwtDecode<{ exp: number }>(refresh);
+    const refreshTokenExpiration: number = decodedRefreshToken.exp;
+
+    cookies().set(ACCESS_TOKEN, access, {
+        expires: accessTokenExpiration * 1000,
+        httpOnly: true,
+        secure: true,
+    });
+    cookies().set(REFRESH_TOKEN, refresh, {
+        expires: refreshTokenExpiration * 1000,
+        httpOnly: true,
+        secure: true,
+    });
 }
 
 export async function getAccessToken() {

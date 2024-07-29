@@ -14,7 +14,7 @@ export const register = async ({
     password,
     re_password,
 }: Props) => {
-    const res = await AxiosInstance.post(postUrl() + "signup/", {
+    const res = await AxiosInstance.post(postUrl(), {
         username,
         email,
         password,
@@ -25,7 +25,7 @@ export const register = async ({
 };
 
 export const login = async ({ username, password }: Props) => {
-    const res = await AxiosInstance.post("accounts/jwt/create/", {
+    const res = await AxiosInstance.post(postUrl() + "jwt/create/", {
         username,
         password,
     });
@@ -34,7 +34,7 @@ export const login = async ({ username, password }: Props) => {
 };
 
 export const reset_password = async (email: string) => {
-    const res = await AxiosInstance.post(postUrl() + "login/", email);
+    const res = await AxiosInstance.post(postUrl() + "reset_password/", email);
     const data = await res.data;
     return data;
 };
@@ -49,13 +49,15 @@ export const submit_exam = async (selectedchoices: object, examId: string) => {
 };
 
 export const refresh_access_token = async (token: string) => {
-    const res = await AxiosInstance.post("//", token);
+    const res = await AxiosInstance.post(postUrl() + "jwt/refresh/", {
+        refresh: token,
+    });
     const data = await res.data;
     return data;
 };
 
 export const account_activation = async (uid: string, token: string) => {
-    const res = await AxiosInstance.post("/users/activation/", {
+    const res = await AxiosInstance.post(postUrl() + "activation/", {
         uid: uid,
         token: token,
     });
