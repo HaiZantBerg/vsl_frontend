@@ -11,6 +11,17 @@ const AxiosInstance = axios.create({
     },
 });
 
+// const AxiosRefreshToken = axios.create({
+//     baseURL: `${process.env.NEXT_PUBLIC_HOST}`,
+//     timeout: 10000,
+//     // withCredentials: true,
+//     headers: {
+//         Accept: "application/json",
+//         "Content-Type": "application/json",
+//         Authorization: 'Bearer'
+//     },
+// });
+
 AxiosInstance.interceptors.request.use(
     (config) => {
         const token = getAccessToken();

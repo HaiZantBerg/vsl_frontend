@@ -31,7 +31,7 @@ export default function useRegister() {
                 router.push("/home");
             })
             .catch((err) => {
-                toast.error(err.response.data);
+                toast.error(err.response);
             });
     };
     return {

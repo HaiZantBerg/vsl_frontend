@@ -48,11 +48,21 @@ export const submit_exam = async (selectedchoices: object, examId: string) => {
     return data;
 };
 
-export const refresh_access_token = async (token: string) => {
-    const res = await AxiosInstance.post(postUrl() + "jwt/refresh/", {
-        refresh: token,
-    });
-    const data = await res.data;
+export const refresh_access_token = async (refresh: string) => {
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_HOST}` + postUrl() + "jwt/refresh/",
+        {
+            method: "POST",
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                refresh: refresh,
+            }),
+        }
+    );
+    const data = await res.json();
     return data;
 };
 

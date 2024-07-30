@@ -3,6 +3,7 @@
 import { cookies } from "next/headers";
 import { jwtDecode } from "jwt-decode";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "./token";
+import { refresh_access_token } from "@/axios/postData";
 
 export async function setToken(access: string, refresh: string) {
     const decodedAccessToken = jwtDecode<{ exp: number }>(access);
@@ -11,7 +12,7 @@ export async function setToken(access: string, refresh: string) {
     const refreshTokenExpiration: number = decodedRefreshToken.exp;
 
     cookies().set(ACCESS_TOKEN, access, {
-        expires: accessTokenExpiration * 10000,
+        expires: (accessTokenExpiration - 0) * 1000,
         httpOnly: true,
         secure: true,
     });
@@ -20,6 +21,13 @@ export async function setToken(access: string, refresh: string) {
         httpOnly: true,
         secure: true,
     });
+}
+
+export async function refreshAccessToken() {
+    const cookie = cookies().get(REFRESH_TOKEN)?.value;
+    if (cookie) {
+        return refresh_access_token(cookie);
+    }
 }
 
 export async function getAccessToken() {

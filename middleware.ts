@@ -41,14 +41,11 @@ export async function middleware(request: NextRequest) {
             return response;
         };
 
-        const reqRefresh = async (refreshToken: string | undefined) => {
-            if (!refreshToken) {
-                return redirect();
-            }
+        const reqRefresh = async (refreshToken: string) => {
             try {
                 const res = await refresh_access_token(refreshToken);
-                if (res.status === 200) {
-                    return isAuthorized(res.data.access);
+                if (res) {
+                    return isAuthorized(res.access);
                 }
                 return redirect();
             } catch (err) {
