@@ -27,7 +27,7 @@ export default function Login() {
                 <p className="text-smpl text-center text-muted-foreground">
                     Bạn là thành viên mới?
                     <Link
-                        href="/Register"
+                        href="/register"
                         className="font-semibold text-accent ml-1"
                     >
                         Đăng kí tại đây!

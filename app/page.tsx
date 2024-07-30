@@ -20,7 +20,7 @@ export default function Home() {
         <div className="flex flex-col">
             <div className="flex flex-col *:flex *:flex-col *:items-center h-[665.6px]">
                 <div className="h-full w-full">
-                    <div className="flex flex-col items-center absolute top-0 justify-center h-full z-10">
+                    <div className="flex flex-col items-center absolute top-0 justify-center h-[729.6px] z-10">
                         <div className="shadow-[0_0_100px_50px_rgb(255,255,255)] absolute z-0 w-full"></div>
                         <span className="text-gt font-header1 text-foreground z-10">
                             *Slogan siêu ngầu*
@@ -30,18 +30,18 @@ export default function Home() {
                         </span>
                     </div>
                     <div className="w-full flex flex-col h-full items-center">
-                        <div className="w-full h-full">
+                        <div className="w-full h-full *:h-[665.6px]">
                             {[
                                 ...Array.from(Array(lineHeight.length).keys()),
                             ].map((linesPosition) => (
                                 <div
                                     key={linesPosition}
-                                    className={`h-full w-full flex absolute`}
+                                    className={`w-full flex absolute`}
                                     style={{
                                         opacity: `calc(1/${
                                             linesPosition ** 2 * 2.3 + 1
                                         })`,
-                                        bottom: `calc(${linesPosition}px * 20)`,
+                                        paddingBottom: `calc(${linesPosition}px * 20)`,
                                     }}
                                 >
                                     {[
@@ -69,10 +69,8 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div
-                    className={`${others.line1} w-full h-1 absolute bottom-[-20px]`}
-                ></div>
             </div>
+            <div className={`${others.line1} w-full h-1 mt-[20px]`}></div>
             <div className="w-full"></div>
         </div>
     );

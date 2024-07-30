@@ -17,7 +17,7 @@ export default function RegisterForm() {
             value: username,
             type: "text",
             labelId: "username",
-            // required: true,
+            required: true,
         },
         {
             labelText: "Địa chỉ email",
@@ -27,7 +27,7 @@ export default function RegisterForm() {
             value: email,
             type: "text",
             labelId: "email",
-            // required: true,
+            required: true,
         },
         {
             labelText: "Mật khẩu",
@@ -37,7 +37,7 @@ export default function RegisterForm() {
             value: password,
             type: "text",
             labelId: "password",
-            // required: true,
+            required: true,
         },
         {
             labelText: "Xác nhận mật khẩu",
@@ -47,7 +47,7 @@ export default function RegisterForm() {
             value: re_password,
             type: "text",
             labelId: "re_password",
-            // required: true,
+            required: true,
         },
     ];
 

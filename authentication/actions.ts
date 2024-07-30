@@ -6,12 +6,12 @@ import { ACCESS_TOKEN, REFRESH_TOKEN } from "./token";
 
 export async function setToken(access: string, refresh: string) {
     const decodedAccessToken = jwtDecode<{ exp: number }>(access);
-    const accessTokenExpiration: number = decodedAccessToken.exp * 10000;
+    const accessTokenExpiration: number = decodedAccessToken.exp;
     const decodedRefreshToken = jwtDecode<{ exp: number }>(refresh);
     const refreshTokenExpiration: number = decodedRefreshToken.exp;
 
     cookies().set(ACCESS_TOKEN, access, {
-        expires: accessTokenExpiration * 1000,
+        expires: accessTokenExpiration * 10000,
         httpOnly: true,
         secure: true,
     });

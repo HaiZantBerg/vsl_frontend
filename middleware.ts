@@ -20,6 +20,7 @@ export async function middleware(request: NextRequest) {
             }
             return NextResponse.redirect(new URL("/login", request.url));
         };
+
         const isAuthorized = (newAccessToken?: string) => {
             const response = NextResponse.next();
             if (check) {
@@ -52,15 +53,15 @@ export async function middleware(request: NextRequest) {
                 return redirect();
             } catch (err) {
                 console.error(err);
-                return NextResponse.redirect(new URL("/login", request.url));
+                return redirect();
             }
         };
 
         const isAccessable = async () => {
-            if (!accessToken && !refreshToken) {
-                return redirect();
-            }
             if (!accessToken) {
+                if (!refreshToken) {
+                    return redirect();
+                }
                 return reqRefresh(refreshToken);
             }
             return isAuthorized();

@@ -20,14 +20,14 @@ const page = () => {
             </div>
 
             <div
-                className={`flex justify-between flex-col gap-[25px] mt-10 w-[500px] rounded-card shadow-[5px_5px_10px_rgba(0,0,0,0.3)] pb-[25px] pt-[30px] px-[37px] 
-                    bg-muted`}
+                className={`flex flex-col gap-[25px] mt-10 w-[500px] rounded-card shadow-[5px_5px_10px_rgba(0,0,0,0.3)] pb-[25px] pt-[30px] px-[37px] 
+                bg-muted`}
             >
                 <RegisterForm />
                 <p className="text-smpl text-center text-muted-foreground">
                     Đã có tài khoản?
                     <Link
-                        href="/Login"
+                        href="/login"
                         className="font-semibold ml-1 text-accent"
                     >
                         Đăng nhập tại đây!
