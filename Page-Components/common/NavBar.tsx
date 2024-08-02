@@ -1,20 +1,35 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function NavBar() {
     return (
-        <div className="h-[64px] bg-foreground flex items-center gap-5 w-full">
-            <div className="text-secondary-foreground text-[25px] font-[650] ml-[60px]">
-                <Link href="/home" className="flex items-center">
-                    <svg height={50} width={50}></svg>
-                    VSL
-                </Link>
-            </div>
-            <div className="w-[50%] flex gap-5 *:text-secondary-foreground *:font-[500]">
-                <Link href="/courses">Đánh giá năng lực</Link>
-                <Link href="/research-room">Khu j đó</Link>
-                <Link href="/community">Cộng đồng</Link>
-                <div></div>
+        <div className="h-16 bg-foreground flex items-center px-4 gap-6">
+            <button className="bg-white">
+                <svg height={50} width={50}>
+                    <path />
+                </svg>
+            </button>
+            <Link
+                href="/home"
+                className="text-secondary-foreground text-[25px] font-[650] flex items-center"
+            >
+                <svg height={50} width={50}></svg>
+                VSL
+            </Link>
+            <div className="grow flex items-center">
+                <form
+                    className="ml-auto w-96 h-9 rounded-xl flex items-center justify-end pr-2"
+                    style={{
+                        background: "rgba(110, 126, 135, 0.67)",
+                    }}
+                >
+                    <></>
+                    <input
+                        type="text"
+                        className="w-11/12 bg-transparent outline-none"
+                    />
+                </form>
             </div>
         </div>
     );

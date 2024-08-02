@@ -8,7 +8,7 @@ export async function middleware(request: NextRequest) {
         request.nextUrl.pathname === "/login" ||
         request.nextUrl.pathname === "/register";
     if (!check) {
-        const accessToken = request.cookies.get(ACCESS_TOKEN)?.value;
+        const accessToken = request.cookies.has(ACCESS_TOKEN);
         const refreshToken = request.cookies.get(REFRESH_TOKEN)?.value;
 
         const redirect = () => {
@@ -49,7 +49,6 @@ export async function middleware(request: NextRequest) {
                 }
                 return redirect();
             } catch (err) {
-                console.error(err);
                 return redirect();
             }
         };
@@ -63,8 +62,7 @@ export async function middleware(request: NextRequest) {
             }
             return isAuthorized();
         };
-        return await isAccessable().catch((err) => {
-            console.log(err);
+        return await isAccessable().catch(() => {
             return redirect();
         });
     }

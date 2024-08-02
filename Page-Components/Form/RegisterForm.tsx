@@ -5,59 +5,49 @@ import { Form } from "@/Page-Components/Form";
 import { RegLogStyle } from "@/Style";
 
 export default function RegisterForm() {
-    const { username, email, password, re_password, onChange, onSubmit } =
-        useRegister();
+    const { isLoading, onChange, onSubmit } = useRegister();
+
+    const style = {
+        labelStyle: `${RegLogStyle.labelTextStyle}`,
+        inputStyle: `${RegLogStyle.inputStyle}`,
+    };
 
     const config = [
         {
             labelText: "Tên tài khoản",
-            divStyle: `${RegLogStyle.divFormStyle}`,
-            labelStyle: `${RegLogStyle.labelTextStyle}`,
-            inputStyle: `${RegLogStyle.forminput}`,
-            value: username,
-            type: "text",
-            labelId: "username",
-            required: true,
+            inputProps: {
+                type: "text",
+                name: "username",
+                required: true,
+            },
         },
         {
             labelText: "Địa chỉ email",
-            divStyle: `${RegLogStyle.divFormStyle}`,
-            labelStyle: `${RegLogStyle.labelTextStyle}`,
-            inputStyle: `${RegLogStyle.forminput}`,
-            value: email,
-            type: "text",
-            labelId: "email",
-            required: true,
+            inputProps: { type: "text", name: "email", required: true },
         },
         {
             labelText: "Mật khẩu",
-            divStyle: `${RegLogStyle.divFormStyle}`,
-            labelStyle: `${RegLogStyle.labelTextStyle}`,
-            inputStyle: `${RegLogStyle.forminput}`,
-            value: password,
-            type: "text",
-            labelId: "password",
-            required: true,
+            inputProps: { type: "text", name: "password", required: true },
         },
         {
             labelText: "Xác nhận mật khẩu",
-            divStyle: `${RegLogStyle.divFormStyle}`,
-            labelStyle: `${RegLogStyle.labelTextStyle}`,
-            inputStyle: `${RegLogStyle.forminput}`,
-            value: re_password,
-            type: "text",
-            labelId: "re_password",
-            required: true,
+            inputProps: {
+                type: "text",
+                name: "re_password",
+                required: true,
+            },
         },
     ];
 
     return (
         <Form
             config={config}
-            onChange={onChange}
+            style={style}
             onSubmit={onSubmit}
+            onChange={onChange}
             btnText="Đăng kí"
-            formStyle="flex flex-col justify-center gap-[25px] h-full w-full"
+            isLoading={isLoading}
+            buttonStyle="mt-1"
         />
     );
 }

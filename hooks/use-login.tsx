@@ -7,12 +7,12 @@ import { setToken } from "@/authentication/actions";
 export default function useRegister() {
     const router = useRouter();
 
+    const [isLoading, setIsLoading] = useState(false);
+
     const [formData, setFormData] = useState({
         username: "",
         password: "",
     });
-
-    const { username, password } = formData;
 
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -20,21 +20,23 @@ export default function useRegister() {
     };
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+        setIsLoading(true);
         event.preventDefault();
-        login({ username, password })
+        login(formData)
             .then(async (data) => {
                 toast.success("Đăng nhập thành công");
                 await setToken(data.access, data.refresh);
                 router.push("/home");
             })
             .catch((err) => {
-                console.log(err);
                 toast.error(err.response.data.detail);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     };
     return {
-        username,
-        password,
+        isLoading,
         onChange,
         onSubmit,
     };

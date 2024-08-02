@@ -12,7 +12,7 @@ export async function setToken(access: string, refresh: string) {
     const refreshTokenExpiration: number = decodedRefreshToken.exp;
 
     cookies().set(ACCESS_TOKEN, access, {
-        expires: (accessTokenExpiration - 0) * 1000,
+        expires: accessTokenExpiration * 1000,
         httpOnly: true,
         secure: true,
     });
@@ -43,4 +43,12 @@ export async function getRefreshToken() {
 export async function deleteTokens() {
     cookies().delete(ACCESS_TOKEN);
     cookies().delete(REFRESH_TOKEN);
+}
+
+export async function hasAccessTokens() {
+    return cookies().has(ACCESS_TOKEN);
+}
+
+export async function hasRefreshTokens() {
+    return cookies().has(REFRESH_TOKEN);
 }

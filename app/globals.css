@@ -2,6 +2,10 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+    box-sizing: border-box;
+}
+
 @layer base {
     :root {
         --footer: #9090905c;
@@ -22,10 +26,12 @@
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
         /* Màu components phụ */
+        --button: #191919;
+        --hover: #ff1818;
         --border: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
-        --ring: #ffffff;
+        --ring: #494949;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;

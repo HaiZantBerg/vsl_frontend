@@ -2,19 +2,17 @@ import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { useState, ChangeEvent, FormEvent } from "react";
 import { register } from "@/axios/postData";
-import { setToken } from "@/authentication/actions";
 
 export default function useRegister() {
     const router = useRouter();
 
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
         username: "",
         email: "",
         password: "",
         re_password: "",
     });
-
-    const { username, email, password, re_password } = formData;
 
     const onChange = (event: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = event.target;
@@ -23,22 +21,23 @@ export default function useRegister() {
     };
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+        setIsLoading(true);
         event.preventDefault();
-        register({ username, email, password, re_password })
-            .then(async (data) => {
+        register(formData)
+            .then(() => {
                 toast.success("Đăng kí thành công");
-                await setToken(data.access, data.refresh);
-                router.push("/home");
+                router.push("/activation");
             })
             .catch((err) => {
-                toast.error(err.response);
+                const res: [string][] = Object.values(err.response.data);
+                toast.error(res[0][0]);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     };
     return {
-        username,
-        email,
-        password,
-        re_password,
+        isLoading,
         onChange,
         onSubmit,
     };

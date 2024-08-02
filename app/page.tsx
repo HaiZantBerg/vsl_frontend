@@ -1,4 +1,5 @@
-import { others } from "@/Style";
+import { firstPageStyle } from "@/Style";
+import Link from "next/link";
 
 export default function Home() {
     class Woman {}
@@ -17,61 +18,76 @@ export default function Home() {
     ];
 
     return (
-        <div className="flex flex-col">
-            <div className="flex flex-col *:flex *:flex-col *:items-center h-[665.6px]">
-                <div className="h-full w-full">
-                    <div className="flex flex-col items-center absolute top-0 justify-center h-[729.6px] z-10">
-                        <div className="shadow-[0_0_100px_50px_rgb(255,255,255)] absolute z-0 w-full"></div>
-                        <span className="text-gt font-header1 text-foreground z-10">
-                            *Slogan siêu ngầu*
-                        </span>
-                        <span className="text-lg font-body1 text-foreground z-10">
-                            *tóm tắt về website cũng siêu ngầu*
-                        </span>
-                    </div>
-                    <div className="w-full flex flex-col h-full items-center">
-                        <div className="w-full h-full *:h-[665.6px]">
-                            {[
-                                ...Array.from(Array(lineHeight.length).keys()),
-                            ].map((linesPosition) => (
-                                <div
-                                    key={linesPosition}
-                                    className={`w-full flex absolute`}
-                                    style={{
-                                        opacity: `calc(1/${
-                                            linesPosition ** 2 * 2.3 + 1
-                                        })`,
-                                        paddingBottom: `calc(${linesPosition}px * 20)`,
-                                    }}
-                                >
-                                    {[
-                                        ...Array.from(
-                                            Array(
-                                                lineHeight[linesPosition].length
-                                            ).keys()
-                                        ),
-                                    ].map((line) => (
-                                        <div
-                                            key={line}
-                                            className={`h-full w-full flex items-end`}
-                                        >
-                                            <div
-                                                className={`w-1 ${others.line2} rounded-full relative`}
-                                                style={{
-                                                    height: `calc(${lineHeight[linesPosition][line]}px * 100/4)`,
-                                                    left: `${paddingLines[linesPosition][line]}%`,
-                                                }}
-                                            ></div>
-                                        </div>
-                                    ))}
-                                </div>
-                            ))}
-                        </div>
+        <>
+            <div className="absolute w-screen z-10">
+                <div className="px-16 pt-4 flex items-center justify-between">
+                    <Link href="/">
+                        <span className="font-bold text-xxl">VSL</span>
+                        {/* <svg></svg> */}
+                    </Link>
+                    <div className="flex gap-8">
+                        <Link
+                            className="rounded-3xl font-header1 h-12 w-24 flex border-2 border-foreground"
+                            href="/login"
+                        >
+                            <span className="m-auto text-sm_pl">Log in</span>
+                        </Link>
+                        <Link
+                            className="rounded-3xl font-header1 h-12 w-24 flex border-2 border-foreground"
+                            href="/register"
+                        >
+                            <span className="m-auto text-sm_pl">Sign up</span>
+                        </Link>
                     </div>
                 </div>
+                <h1 className="text-gt font-header1 text-foreground text-center pt-44">
+                    *Slogan siêu ngầu*
+                </h1>
+                <h3 className="text-lg font-body1 text-foreground text-center">
+                    *tóm tắt về website cũng siêu ngầu*
+                </h3>
             </div>
-            <div className={`${others.line1} w-full h-1 mt-[20px]`}></div>
-            <div className="w-full"></div>
-        </div>
+            <div
+                className="*:row-span-full *:col-span-full grid z-0"
+                style={{
+                    gridTemplateRows: "729.6px",
+                    gridTemplateColumns: "100vw",
+                }}
+            >
+                {[...Array.from(Array(lineHeight.length).keys())].map(
+                    (linesPosition) => (
+                        <div
+                            key={linesPosition}
+                            className="grid items-end *:row-span-full"
+                            style={{
+                                opacity: `calc(1/${
+                                    linesPosition ** 2 * 2.3 + 1
+                                })`,
+                                paddingBottom: `calc(${linesPosition}px * 20)`,
+                            }}
+                        >
+                            {[
+                                ...Array.from(
+                                    Array(
+                                        lineHeight[linesPosition].length
+                                    ).keys()
+                                ),
+                            ].map((line) => (
+                                <div
+                                    key={line}
+                                    className={`w-1 ${firstPageStyle.line2} rounded-full relative`}
+                                    style={{
+                                        height: `calc(${lineHeight[linesPosition][line]}px * 100/4)`,
+                                        left: `${paddingLines[linesPosition][line]}%`,
+                                    }}
+                                ></div>
+                            ))}
+                        </div>
+                    )
+                )}
+            </div>
+            <div className={`${firstPageStyle.line1} h-1 mt-[20px]`}></div>
+            <div className=""></div>
+        </>
     );
 }

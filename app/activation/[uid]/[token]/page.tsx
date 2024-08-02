@@ -3,6 +3,7 @@
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { account_activation } from "@/axios/postData";
+import { useEffect } from "react";
 
 interface Props {
     params: {
@@ -14,15 +15,17 @@ interface Props {
 export default function Activation({ params }: Props) {
     const router = useRouter();
 
-    account_activation(params.uid, params.token)
-        .then(() => {
-            toast.success("Kích hoạt thành công");
-            router.push("/home");
-        })
-        .catch(() => {
-            toast.error("Kích hoạt thất bại");
-            router.push("/register");
-        });
+    useEffect(() => {
+        account_activation(params.uid, params.token)
+            .then(() => {
+                toast.success("Kích hoạt thành công");
+                router.push("/login");
+            })
+            .catch(() => {
+                toast.error("Kích hoạt thất bại");
+                router.push("/register");
+            });
+    }, []);
 
     return (
         <div>

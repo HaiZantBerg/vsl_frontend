@@ -1,56 +1,44 @@
-import { ChangeEvent } from "react";
+import React, { ChangeEvent } from "react";
 import Link from "next/link";
 
-interface Props {
-    children: React.ReactNode;
-    divStyle: string;
-    labelStyle: string;
-    inputStyle: string;
-    value: string;
-    type: string;
-    labelId: string;
-    required?: boolean;
+export interface Props {
+    labelText: string;
+    inputProps: object;
+    link?: boolean;
+}
+
+export interface Change {
     onChange: (event: ChangeEvent<HTMLInputElement>) => void;
-    link?: {
-        divStyle: string;
-        linkURL: string;
-        linkText: string;
-        linkStyle: string;
-    };
+}
+
+interface Extra {
+    style: { labelStyle: string; inputStyle: string };
 }
 
 export default function Input({
-    children,
-    divStyle,
-    labelStyle,
-    inputStyle,
-    value,
-    type,
-    labelId,
-    required = false,
+    labelText,
+    inputProps,
     onChange,
+    style,
     link,
-}: Props) {
+}: Props & Extra & Change) {
     return (
-        <div className={divStyle}>
-            <label htmlFor={labelId} className={labelStyle}>
-                {children}
+        <div>
+            <label htmlFor={labelText} className={style.labelStyle}>
+                {labelText}
             </label>
             <input
-                id={labelId}
-                type={type}
-                name={labelId}
-                className={inputStyle}
+                {...inputProps}
+                className={`${style.inputStyle}`}
                 onChange={onChange}
-                value={value}
-                required={required}
             />
             {link && (
-                <div className={link.divStyle}>
-                    <Link href={link.linkURL} className={link.linkStyle}>
-                        {link.linkText}
-                    </Link>
-                </div>
+                <Link
+                    href="/reset-password"
+                    className="font-header2 w-full flex justify-end"
+                >
+                    Quên mật khẩu?
+                </Link>
             )}
         </div>
     );

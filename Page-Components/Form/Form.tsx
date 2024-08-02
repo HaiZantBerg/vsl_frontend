@@ -1,65 +1,48 @@
-import { FormEvent, ChangeEvent } from "react";
+import { FormEvent } from "react";
 import { Input } from "@/Page-Components/Form";
 import { Spinner } from "@/Page-Components/common";
-
-interface Config {
-    labelText: string;
-    divStyle: string;
-    labelStyle: string;
-    inputStyle: string;
-    value: string;
-    type: string;
-    labelId: string;
-    required?: boolean;
-    link?: {
-        divStyle: string;
-        linkURL: string;
-        linkText: string;
-        linkStyle: string;
-    };
-}
+import type { Props as Config, Change } from "./Input";
 
 interface Props {
+    style: {
+        labelStyle: string;
+        inputStyle: string;
+    };
     config: Config[];
-    onChange: (event: ChangeEvent<HTMLInputElement>) => void;
     onSubmit: (event: FormEvent<HTMLFormElement>) => void;
     btnText: string;
-    formStyle: string;
+    isLoading: boolean;
+    buttonStyle?: string;
 }
 
 export default function Form({
+    style,
     config,
-    onChange,
     onSubmit,
+    onChange,
     btnText,
-    formStyle,
-}: Props) {
+    isLoading,
+    buttonStyle,
+}: Props & Change) {
     return (
-        <form onSubmit={onSubmit} className={formStyle}>
+        <form onSubmit={onSubmit} className="flex flex-col gap-6">
             {config.map((ip) => (
                 <Input
-                    key={ip.labelId}
-                    divStyle={ip.divStyle}
-                    labelStyle={ip.labelStyle}
-                    inputStyle={ip.inputStyle}
-                    value={ip.value}
-                    type={ip.type}
-                    labelId={ip.labelId}
-                    required={ip.required}
+                    key={ip.labelText}
+                    labelText={ip.labelText}
+                    inputProps={ip.inputProps}
                     onChange={onChange}
+                    style={style}
                     link={ip.link}
-                >
-                    {ip.labelText}
-                </Input>
+                />
             ))}
-            <div className="w-full">
-                <button
-                    type="submit"
-                    className="flex justify-center w-full h-10 rounded-card font-header1 p-1 bg-accent items-center text-accent-foreground"
-                >
-                    {`${btnText}`}
-                </button>
-            </div>
+            <button
+                type="submit"
+                className={`w-full h-10 rounded-card font-header1 bg-button text-accent-foreground ${buttonStyle} hover:animate-buttonHover`}
+                disabled={isLoading}
+            >
+                {isLoading ? <Spinner sm /> : btnText}
+            </button>
         </form>
     );
 }

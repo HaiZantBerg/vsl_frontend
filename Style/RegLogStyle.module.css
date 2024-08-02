@@ -1,0 +1,11 @@
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.inputStyle {
+    @apply pl-1 w-full rounded-card leading-[32.5px] outline-none;
+}
+.labelTextStyle {
+    @apply font-header3 text-accent;
+}

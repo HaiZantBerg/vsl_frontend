@@ -14,14 +14,14 @@ const page = () => {
                     width={60}
                     priority
                 />
-                <h1 className="font-header1 text-mdpl mt-10">
+                <h1 className="font-header1 text-md_pl mt-10">
                     Tạo tài khoản mới
                 </h1>
             </div>
 
             <div
-                className={`flex flex-col gap-[25px] mt-10 w-[500px] rounded-card shadow-[5px_5px_10px_rgba(0,0,0,0.3)] pb-[25px] pt-[30px] px-[37px] 
-                bg-muted`}
+                className="flex flex-col gap-6 mt-10 w-[500px] rounded-card shadow-[5px_5px_10px_rgba(0,0,0,0.3)] pb-[25px] pt-[30px] px-[37px] 
+                bg-muted"
             >
                 <RegisterForm />
                 <p className="text-smpl text-center text-muted-foreground">

@@ -5,6 +5,7 @@ import "./globals.css";
 import { Setup } from "@/Page-Components/utils";
 import "react-toastify/ReactToastify.min.css";
 import { ThemeProvider } from "@/Page-Components/ui/themeProvider";
+import { hasAccessTokens } from "@/authentication/actions";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,15 +14,17 @@ export const metadata: Metadata = {
     description: "Web học (chắc v) ¯|_(ツ)_/¯",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
     children,
 }: Readonly<{
     children: React.ReactNode;
 }>) {
+    const isAuthenticated = await hasAccessTokens();
+
     return (
         <html lang="en" suppressHydrationWarning>
             <body
-                className={`${inter.className} w-[100vw] h-[100vh] overflow-y-auto overflow-x-hidden`}
+                className={`${inter.className} overflow-y-auto overflow-x-hidden`}
             >
                 <Setup />
                 <ThemeProvider
@@ -39,15 +42,11 @@ export default function RootLayout({
                     ]}
                     disableTransitionOnChange
                 >
-                    <div className=" flex flex-col w-full">
-                        <div className="z-10">
-                            <NavBar />
-                        </div>
-                        <div className="w-full z-0">{children}</div>
-                    </div>
-                    <div className="mt-20">
+                    {isAuthenticated && <NavBar />}
+                    {children}
+                    <Conditional>
                         <Footer />
-                    </div>
+                    </Conditional>
                 </ThemeProvider>
             </body>
         </html>

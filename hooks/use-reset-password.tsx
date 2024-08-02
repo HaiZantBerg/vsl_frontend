@@ -3,6 +3,7 @@ import { useState, ChangeEvent, FormEvent } from "react";
 import { reset_password } from "@/axios/postData";
 
 export default function useRegister() {
+    const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState("");
 
     const email = formData;
@@ -12,6 +13,7 @@ export default function useRegister() {
     };
 
     const onSubmit = (event: FormEvent<HTMLFormElement>) => {
+        setIsLoading(true);
         event.preventDefault();
         reset_password(email)
             .then(() => {
@@ -21,10 +23,13 @@ export default function useRegister() {
             })
             .catch((err) => {
                 toast.error(err.response.data.status);
+            })
+            .finally(() => {
+                setIsLoading(false);
             });
     };
     return {
-        email,
+        isLoading,
         onChange,
         onSubmit,
     };
