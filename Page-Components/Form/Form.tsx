@@ -38,7 +38,8 @@ export default function Form({
             ))}
             <button
                 type="submit"
-                className={`w-full h-10 rounded-card font-header1 bg-button text-accent-foreground ${buttonStyle} hover:animate-buttonHover`}
+                className={`w-full flex justify-center items-center h-10 rounded-card font-header1 bg-button text-accent-foreground 
+                    ${buttonStyle} transition ease-in-out bg-button hover:bg-hover duration-300`}
                 disabled={isLoading}
             >
                 {isLoading ? <Spinner sm /> : btnText}

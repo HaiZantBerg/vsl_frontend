@@ -26,12 +26,13 @@
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
         /* Màu components phụ */
+        --roomCard: #f3f3f3;
         --button: #191919;
-        --hover: #ff1818;
-        --border: #ffffff;
+        --hover: #373737;
+        --border11: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
-        --ring: #494949;
+        --ring1: #494949;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;
@@ -60,10 +61,10 @@
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
         /* Màu components phụ */
-        --border: #ffffff;
+        --border1: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
-        --ring: #ffffff;
+        --ring1: #ffffff;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;
@@ -92,10 +93,10 @@
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
         /* Màu components phụ */
-        --border: #ffffff;
+        --border1: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
-        --ring: #ffffff;
+        --ring1: #ffffff;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;
@@ -124,10 +125,10 @@
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
         /* Màu components phụ */
-        --border: #ffffff;
+        --border1: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
-        --ring: #ffffff;
+        --ring1: #ffffff;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;
@@ -156,10 +157,10 @@
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
         /* Màu components phụ */
-        --border: #ffffff;
+        --border1: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
-        --ring: #ffffff;
+        --ring1: #ffffff;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;
@@ -188,10 +189,10 @@
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
         /* Màu components phụ */
-        --border: #ffffff;
+        --border1: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
-        --ring: #ffffff;
+        --ring1: #ffffff;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;
@@ -220,10 +221,10 @@
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
         /* Màu components phụ */
-        --border: #ffffff;
+        --border1: #ffffff;
         --underline: #ffffff;
         --input: #ffffff;
-        --ring: #ffffff;
+        --ring1: #ffffff;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;
@@ -235,7 +236,7 @@
 
 @layer base {
     * {
-        @apply border-border;
+        @apply border-border1;
     }
     body {
         @apply bg-background text-foreground;

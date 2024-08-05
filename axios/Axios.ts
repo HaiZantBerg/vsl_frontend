@@ -4,27 +4,15 @@ import { getAccessToken } from "@/authentication/actions";
 const AxiosInstance = axios.create({
     baseURL: `${process.env.NEXT_PUBLIC_HOST}`,
     timeout: 10000,
-    // withCredentials: true,
     headers: {
         Accept: "application/json",
         "Content-Type": "application/json",
     },
 });
 
-// const AxiosRefreshToken = axios.create({
-//     baseURL: `${process.env.NEXT_PUBLIC_HOST}`,
-//     timeout: 10000,
-//     // withCredentials: true,
-//     headers: {
-//         Accept: "application/json",
-//         "Content-Type": "application/json",
-//         Authorization: 'Bearer'
-//     },
-// });
-
 AxiosInstance.interceptors.request.use(
-    (config) => {
-        const token = getAccessToken();
+    async (config) => {
+        const token = await getAccessToken();
         if (token) {
             config.headers.Authorization = `Bearer ${token}`;
         }

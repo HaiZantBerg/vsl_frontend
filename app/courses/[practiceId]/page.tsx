@@ -1,6 +1,10 @@
 import React from "react";
-import { Questions } from "@/Page-Components/Examination";
+import { Questions } from "@/Page-Components/Subject";
 
 export default function page({ params }: { params: { practiceId: string } }) {
-    return <Questions id={`${params.practiceId}`} />;
+    return (
+        <div>
+            <Questions id={`${params.practiceId}`} />;
+        </div>
+    );
 }

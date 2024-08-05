@@ -1,7 +1,5 @@
-export function postUrl() {
-    return "/accounts/";
-}
+export const accountUrl = "/accounts/";
 
-export function examUrl() {
-    return "/course/examination/";
-}
+export const examUrl = "/course/examination/";
+
+export const lessonUrl = "/course/lesson/";

@@ -3,7 +3,6 @@
 import { cookies } from "next/headers";
 import { jwtDecode } from "jwt-decode";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "./token";
-import { refresh_access_token } from "@/axios/postData";
 
 export async function setToken(access: string, refresh: string) {
     const decodedAccessToken = jwtDecode<{ exp: number }>(access);
@@ -23,13 +22,6 @@ export async function setToken(access: string, refresh: string) {
     });
 }
 
-export async function refreshAccessToken() {
-    const cookie = cookies().get(REFRESH_TOKEN)?.value;
-    if (cookie) {
-        return refresh_access_token(cookie);
-    }
-}
-
 export async function getAccessToken() {
     const accessToken = cookies().get(ACCESS_TOKEN);
     return accessToken?.value;
@@ -45,10 +37,7 @@ export async function deleteTokens() {
     cookies().delete(REFRESH_TOKEN);
 }
 
-export async function hasAccessTokens() {
+export async function hasTokens() {
+    console.log(cookies().has(ACCESS_TOKEN));
     return cookies().has(ACCESS_TOKEN);
-}
-
-export async function hasRefreshTokens() {
-    return cookies().has(REFRESH_TOKEN);
 }

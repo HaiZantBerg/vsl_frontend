@@ -10,9 +10,9 @@ export default function LogOut() {
     return (
         <div className="w-[240px] h-[200px] bg-card rounded-lg justify-center">
             <button
-                onClick={() => {
-                    deleteTokens();
-                    router.push("/");
+                onClick={async () => {
+                    await deleteTokens();
+                    router.push("/login");
                 }}
                 className="text-card-foreground bg-red-600"
             >

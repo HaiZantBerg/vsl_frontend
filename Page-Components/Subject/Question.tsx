@@ -20,8 +20,8 @@ interface questionProps {
     ];
 }
 
-export default function Questions({ id }: { id: string }) {
-    const { data, error, isLoading } = useSWR([examUrl(), id], (url) =>
+export default function page({ id }: { id: string }) {
+    const { data, error, isLoading } = useSWR([examUrl, id], (url) =>
         getQuestionData(url[0], url[1])
     );
 
@@ -110,9 +110,8 @@ export default function Questions({ id }: { id: string }) {
                     <button onClick={() => handleSubmit()}>Nộp bài</button>
                 </div>
             );
-        } else {
-            <div>...Loading</div>;
         }
+        return <div>...Đang tải</div>;
     } else {
         return <div>Lỗi</div>;
     }

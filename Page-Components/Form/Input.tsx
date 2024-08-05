@@ -29,16 +29,14 @@ export default function Input({
             </label>
             <input
                 {...inputProps}
+                id={labelText}
                 className={`${style.inputStyle}`}
                 onChange={onChange}
             />
             {link && (
-                <Link
-                    href="/reset-password"
-                    className="font-header2 w-full flex justify-end"
-                >
-                    Quên mật khẩu?
-                </Link>
+                <div className=" w-full flex justify-end font-header2">
+                    <Link href="/reset-password">Quên mật khẩu?</Link>
+                </div>
             )}
         </div>
     );

@@ -15,6 +15,13 @@ const config = {
             sm: "10px",
         },
         extend: {
+            height: {
+                roomCard: "550px",
+                almostfull: "665.6px",
+            },
+            width: {
+                roomCard: "550px",
+            },
             borderRadius: {
                 card: "10px",
                 button: "12.5px",
@@ -46,13 +53,14 @@ const config = {
                 },
             },
             colors: {
+                roomCard: "var(--roomCard)",
                 button: "var(--button)",
                 hover: "var(--hover)",
                 footer: "var(--footer)",
-                border: "var(--border)",
+                border1: "var(--border1)",
                 underline: "var(--underline)",
                 input: "var(--input)",
-                ring: "var(--ring)",
+                ring1: "var(--ring1)",
                 background: "var(--background)",
                 foreground: "var(--foreground)",
                 primary: {
@@ -85,14 +93,6 @@ const config = {
                 },
             },
             keyframes: {
-                buttonHover: {
-                    from: {
-                        backgroundColor: "var(--button)",
-                    },
-                    to: {
-                        backgroundColor: "var(--hover)",
-                    },
-                },
                 "accordion-down": {
                     from: { height: "0" },
                     to: { height: "var(--radix-accordion-content-height)" },
@@ -105,7 +105,6 @@ const config = {
             animation: {
                 "accordion-down": "accordion-down 0.2s ease-out",
                 "accordion-up": "accordion-up 0.2s ease-out",
-                buttonHover: "buttonHover 9s ease-in",
             },
         },
     },

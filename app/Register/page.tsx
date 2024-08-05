@@ -8,12 +8,14 @@ const page = () => {
     return (
         <div className={`${RegLogStyle.center} flex-col mt-10`}>
             <div className={`${RegLogStyle.center} flex-col`}>
-                <Image
-                    src={logo}
-                    alt="Visual Subject Learning"
-                    width={60}
-                    priority
-                />
+                <Link href="/">
+                    <Image
+                        src={logo}
+                        alt="Visual Subject Learning"
+                        width={60}
+                        priority
+                    />
+                </Link>
                 <h1 className="font-header1 text-md_pl mt-10">
                     Tạo tài khoản mới
                 </h1>

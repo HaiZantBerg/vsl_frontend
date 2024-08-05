@@ -1,15 +1,22 @@
+"use client";
+
+import { usePathname } from "next/navigation";
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
+import SideBar from "./SideBar";
 
 export default function NavBar() {
+    const pathname = usePathname();
+
+    const noNavBarRoutes = ["login", "register", "reset-password", ""];
+
+    if (noNavBarRoutes.includes(pathname.split("/")[1])) {
+        return null;
+    }
+
     return (
         <div className="h-16 bg-foreground flex items-center px-4 gap-6">
-            <button className="bg-white">
-                <svg height={50} width={50}>
-                    <path />
-                </svg>
-            </button>
+            <SideBar />
             <Link
                 href="/home"
                 className="text-secondary-foreground text-[25px] font-[650] flex items-center"
