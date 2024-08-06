@@ -72,7 +72,7 @@ export default function page({ id }: { id: string }) {
                             className="flex items-center flex-col"
                         >
                             <div
-                                className={cn("", {
+                                className={cn({
                                     "bg-red-400":
                                         countUnfinishedQuestion.includes(
                                             String(questionData.id)

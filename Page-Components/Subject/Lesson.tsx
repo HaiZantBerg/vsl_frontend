@@ -18,10 +18,11 @@ interface Props {
         alt?: string;
         image?: string;
         name?: string;
+        className?: string;
     }[];
 }
 
-export default function Lesson({ id, jj }: { id: string; jj: string[] }) {
+export default function Lesson({ id }: { id: string }) {
     const { data, isLoading, error } = useSWR([lessonUrl, id], (url) =>
         getLessonData(url[0], url[1])
     );
@@ -34,9 +35,12 @@ export default function Lesson({ id, jj }: { id: string; jj: string[] }) {
                 <div>
                     {lessonData.map((section: Props) => (
                         <div key={section.id} className="h-almostfull">
+                            <div className="text-center font-bold text-xl">
+                                {section.title}
+                            </div>
                             {section.contents.map((content) => (
                                 <div key={content.id}>
-                                    <div className={jj[content.no - 1]}>
+                                    <div className={` ${content.className}`}>
                                         {content.content}
                                     </div>
                                     {content.alt && (
@@ -50,7 +54,11 @@ export default function Lesson({ id, jj }: { id: string; jj: string[] }) {
                                             height={100}
                                         />
                                     )}
-                                    {content.name}
+                                    {content.name && (
+                                        <div>
+                                            <div></div>
+                                        </div>
+                                    )}
                                 </div>
                             ))}
                         </div>
