@@ -1,15 +1,8 @@
 "use client";
 
 import Input from "@/animation/input/Input";
+import SvgGraphAnimation from "@/animation/svgGraphAnimation";
 import { useState, useEffect } from "react";
-import {
-    Line,
-    LineChart,
-    CartesianGrid,
-    XAxis,
-    YAxis,
-    Tooltip,
-} from "recharts";
 
 export default function VelocityGraph() {
     const [velocity, setVelocity] = useState(0);
@@ -91,15 +84,7 @@ export default function VelocityGraph() {
                 </div>
             </div>
             <div>
-                {time >= 0 && (
-                    <LineChart data={chartData} width={300} height={300}>
-                        {/* <CartesianGrid /> */}
-                        <XAxis dataKey="time" />
-                        <YAxis />
-                        <Tooltip />
-                        <Line dataKey="distance" />
-                    </LineChart>
-                )}
+                <SvgGraphAnimation />
             </div>
         </div>
     );

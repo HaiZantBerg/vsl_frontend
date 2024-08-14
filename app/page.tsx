@@ -30,13 +30,13 @@ export default function Home() {
                             className="rounded-3xl font-header1 h-12 w-24 flex border-2 border-foreground"
                             href="/login"
                         >
-                            <span className="m-auto text-sm_pl">Log in</span>
+                            <span className="m-auto text-sm_pl_pl">Log in</span>
                         </Link>
                         <Link
                             className="rounded-3xl font-header1 h-12 w-[135px] flex border-2 border-foreground"
                             href="/register"
                         >
-                            <span className="m-auto text-sm_pl">
+                            <span className="m-auto text-sm_pl_pl">
                                 Get started
                             </span>
                         </Link>

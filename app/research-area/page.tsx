@@ -154,7 +154,6 @@ export default function page() {
                         translateZ="90"
                         className="flex justify-center items-center w-full h-1/2"
                     >
-                        <div className="absolute bg-roomCard w-6 h-6 top-[25px] left-[160px]"></div>
                         <SvgAtomAnimation />
                     </CardItem>
                     <CardItem>

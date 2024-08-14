@@ -6,6 +6,8 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from "@/components/ui/popover";
+import LogOut from "./LogOut";
+import { Avatar, Username } from "../OfUser/userData";
 
 export default function SideBar() {
     return (
@@ -36,11 +38,22 @@ export default function SideBar() {
                     </svg>
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="h-[42rem] w-[20rem] z-50 border-t border-t-ring1">
-                <div className=" text-accent-foreground flex flex-col font-body1 gap-3">
+            <PopoverContent className="h-[42rem] w-[20rem] z-50 border-t border-t-ring1 text-accent-foreground flex flex-col *:flex *:flex-col font-body1 *:gap-3 justify-between">
+                <div className="">
                     <Link href="/research-area">Khu nghiêm cứu</Link>
                     <Link href="/courses">Chưa biết đặt lại tên như nào</Link>
                     <Link href="/community">Cộng đồng</Link>
+                </div>
+                <div className="">
+                    <LogOut className="text-start" />
+                    <hr />
+                    <Link
+                        href={`/user/${"NiQ"}`}
+                        className="inline-flex items-center gap-3 mr-24"
+                    >
+                        <Avatar scale={37.5} />
+                        <Username />
+                    </Link>
                 </div>
             </PopoverContent>
         </Popover>

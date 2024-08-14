@@ -1,0 +1,12 @@
+.electron {
+    animation: orbit 1.2s infinite linear;
+}
+
+@keyframes orbit {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}

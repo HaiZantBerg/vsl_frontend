@@ -13,26 +13,30 @@
         --foreground: #000000;
         --card: #000000;
         --card-foreground: #ffffff;
-        --popover: #ffffff;
+        --popover: #000000;
         --popover-foreground: #ffffff;
         --primary: #000000;
         --primary-foreground: #ffffff;
         --secondary: #ffffff;
         --secondary-foreground: #ffffff;
-        --muted: #3939394b;
+        --muted: #747474;
+        --muted2: #2b2b2b;
         --muted-foreground: #121212e3;
         --accent: #000000f2;
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
         /* Màu components phụ */
+        --placeholder: #acacac;
         --roomCard: #f3f3f3;
         --button: #191919;
         --hover: #373737;
-        --border11: #ffffff;
+        --border1: #ffffff;
+        --border2: #000000;
         --underline: #ffffff;
         --input: #ffffff;
         --ring1: #494949;
+        --transparent1: #0000003b;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;
@@ -44,7 +48,7 @@
     .Light {
         /* Màu components chính */
         --footer: #ffffff;
-        --background: #ffffff;
+        --background: #000000;
         --foreground: #ffffff;
         --card: #ffffff;
         --card-foreground: #ffffff;
@@ -108,7 +112,7 @@
     .Spring {
         /* Màu components chính */
         --footer: #ffffff;
-        --background: #ffffff;
+        --background: #000000;
         --foreground: #ffffff;
         --card: #ffffff;
         --card-foreground: #ffffff;
@@ -140,7 +144,7 @@
     .Summer {
         /* Màu components chính */
         --footer: #ffffff;
-        --background: #ffffff;
+        --background: #000000;
         --foreground: #ffffff;
         --card: #ffffff;
         --card-foreground: #ffffff;
@@ -172,7 +176,7 @@
     .Fall {
         /* Màu components chính */
         --footer: #ffffff;
-        --background: #ffffff;
+        --background: #000000;
         --foreground: #ffffff;
         --card: #ffffff;
         --card-foreground: #ffffff;
@@ -204,7 +208,7 @@
     .Winter {
         /* Màu components chính */
         --footer: #ffffff;
-        --background: #ffffff;
+        --background: #000000;
         --foreground: #ffffff;
         --card: #ffffff;
         --card-foreground: #ffffff;

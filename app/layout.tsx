@@ -4,7 +4,7 @@ import { NavBar, Footer } from "@/Page-Components/common";
 import "./globals.css";
 import { Setup } from "@/Page-Components/utils";
 import "react-toastify/ReactToastify.min.css";
-import { ThemeProvider } from "@/Page-Components/ui/themeProvider";
+import { ThemeProvider } from "@/components/ui/themeProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
