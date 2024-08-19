@@ -9,6 +9,8 @@ import {
 import LogOut from "./LogOut";
 import { Avatar, Username } from "../OfUser/userData";
 
+const iconSize = 35;
+
 export default function SideBar() {
     return (
         <Popover>
@@ -38,21 +40,33 @@ export default function SideBar() {
                     </svg>
                 </Button>
             </PopoverTrigger>
-            <PopoverContent className="h-[42rem] w-[20rem] z-50 border-t border-t-ring1 text-accent-foreground flex flex-col *:flex *:flex-col font-body1 *:gap-3 justify-between">
-                <div className="">
-                    <Link href="/research-area">Khu nghiêm cứu</Link>
-                    <Link href="/courses">Chưa biết đặt lại tên như nào</Link>
-                    <Link href="/community">Cộng đồng</Link>
+            <PopoverContent className="h-[42rem] w-[17rem] z-50 border-t border-t-ring1 text-accent-foreground flex flex-col *:flex *:flex-col font-body1 *:gap-3 justify-between">
+                <div className="*:flex *:items-center">
+                    <div>
+                        <svg height={iconSize} width={iconSize}></svg>
+                        <Link href="/courses">EduZone</Link>
+                    </div>
+                    <div>
+                        <svg height={iconSize} width={iconSize}></svg>
+                        <Link href="/research-area">Khu nghiêm cứu</Link>
+                    </div>
+                    <div>
+                        <svg height={iconSize} width={iconSize}></svg>
+                        <Link href="/community">Cộng đồng</Link>
+                    </div>
                 </div>
-                <div className="">
-                    <LogOut className="text-start" />
+                <div className="*:flex *:items-center">
+                    <div>
+                        <svg height={iconSize} width={iconSize}></svg>
+                        <LogOut className="text-start" />
+                    </div>
                     <hr />
                     <Link
                         href={`/user/${"NiQ"}`}
                         className="inline-flex items-center gap-3 mr-24"
                     >
                         <Avatar scale={37.5} />
-                        <Username />
+                        {/* <Username /> */}
                     </Link>
                 </div>
             </PopoverContent>

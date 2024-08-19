@@ -10,7 +10,7 @@ import { Button } from "@/components/ui/button";
 import { useTheme } from "next-themes";
 
 const themeIcons = {
-    System: function () {
+    default: function () {
         return (
             // <svg>
             //     <path></path>
@@ -18,7 +18,7 @@ const themeIcons = {
             <div>1</div>
         );
     },
-    Dark: function () {
+    dark: function () {
         return (
             // <svg>
             //     <path></path>
@@ -26,7 +26,7 @@ const themeIcons = {
             <div>2</div>
         );
     },
-    Light: function () {
+    light: function () {
         return (
             // <svg>
             //     <path></path>
@@ -34,7 +34,7 @@ const themeIcons = {
             <div>3</div>
         );
     },
-    Spring: function () {
+    spring: function () {
         return (
             // <svg>
             //     <path></path>
@@ -42,7 +42,7 @@ const themeIcons = {
             <div>4</div>
         );
     },
-    Summer: function () {
+    summer: function () {
         return (
             // <svg>
             //     <path></path>
@@ -50,7 +50,7 @@ const themeIcons = {
             <div>5</div>
         );
     },
-    Fall: function () {
+    fall: function () {
         return (
             // <svg>
             //     <path></path>
@@ -58,7 +58,7 @@ const themeIcons = {
             <div>6</div>
         );
     },
-    Winter: function () {
+    winter: function () {
         return (
             // <svg>
             //     <path></path>
@@ -72,7 +72,7 @@ export default function ThemeToggle() {
     const { setTheme, theme } = useTheme();
 
     const [currentTheme, setCurrentTheme] = useState<
-        "Light" | "Dark" | "System" | "Spring" | "Summer" | "Fall" | "Winter"
+        "light" | "dark" | "default" | "spring" | "summer" | "fall" | "winter"
     >();
 
     useEffect(() => {
@@ -93,20 +93,19 @@ export default function ThemeToggle() {
             </PopoverTrigger>
             <PopoverContent direction={"top"} className="relative top-2 w-6">
                 {[
-                    "System",
-                    "Dark",
-                    "Light",
-                    "Spring",
-                    "Summer",
-                    "Fall",
-                    "Winter",
+                    "default",
+                    "dark",
+                    "light",
+                    "spring",
+                    "summer",
+                    "fall",
+                    "winter",
                 ].map((theme) => (
                     <div
                         key={theme}
                         className="rounded-[0.2rem] text-[.875rem] px-2 py-1.5 select-none transition ease-in-out bg-button hover:bg-hover duration-300"
                         onClick={() => {
                             setTheme(theme);
-                            localStorage.setItem("theme", theme);
                         }}
                     >
                         {theme}

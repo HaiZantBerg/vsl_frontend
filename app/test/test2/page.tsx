@@ -1,13 +1,6 @@
-"use client";
+import React from "react";
+import Icosahedron from "@/Page-Components/3dObject/Icosahedron";
 
-import { useState, useEffect } from "react";
-
-export default function App() {
-    const [isClient, setIsClient] = useState(false);
-
-    useEffect(() => {
-        setIsClient(true);
-    }, []);
-
-    return <h1>{isClient ? "This is never prerendered" : "Prerendered"}</h1>;
+export default function page() {
+    return <Icosahedron />;
 }

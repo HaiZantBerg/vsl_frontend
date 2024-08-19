@@ -19,25 +19,27 @@ export default async function RootLayout({
     children: React.ReactNode;
 }>) {
     return (
-        <html lang="en" suppressHydrationWarning>
+        <html lang="en" suppressHydrationWarning={true}>
             <body
                 className={`${inter.className} overflow-y-auto overflow-x-hidden`}
             >
                 <Setup />
                 <ThemeProvider
                     attribute="class"
-                    defaultTheme="System"
                     enableSystem
+                    defaultTheme="default"
+                    enableColorScheme={false}
                     themes={[
-                        "System",
-                        "Light",
-                        "Dark",
-                        "Spring",
-                        "Summer",
-                        "Fall",
-                        "Winter",
+                        "default",
+                        "light",
+                        "dark",
+                        "spring",
+                        "summer",
+                        "fall",
+                        "winter",
                     ]}
                     disableTransitionOnChange
+                    storageKey="theme"
                 >
                     <NavBar />
                     {children}

@@ -30,7 +30,7 @@ export default function Input({
             <input
                 {...inputProps}
                 id={labelText}
-                className={`${style.inputStyle}`}
+                className={`${style.inputStyle} bg-background`}
                 onChange={onChange}
             />
             {link && (

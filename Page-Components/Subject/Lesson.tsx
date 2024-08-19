@@ -8,10 +8,10 @@ import Image from "next/image";
 
 interface Props {
     id: number;
-    content_quantity: number;
     title: string;
+    no: number;
     lesson: number;
-    contents: {
+    sections: {
         id: number;
         no: number;
         content?: string;
@@ -38,7 +38,7 @@ export default function Lesson({ id }: { id: string }) {
                             <div className="text-center font-bold text-xl">
                                 {section.title}
                             </div>
-                            {section.contents.map((content) => (
+                            {section.sections.map((content) => (
                                 <div key={content.id}>
                                     <div className={` ${content.className}`}>
                                         {content.content}

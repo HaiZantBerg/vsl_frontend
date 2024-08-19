@@ -31,8 +31,10 @@ const config = {
                 too_big: "60px",
                 xxl: "50px",
                 xl: "40px",
+                xl_pl: "45px",
                 md_pl: "25px",
                 sm_pl_pl: "17.5px",
+                sm_pl2: "14.5px",
                 sm_pl: "12.5px",
                 xs: "5px",
             },
@@ -81,6 +83,8 @@ const config = {
                 muted: {
                     DEFAULT: "var(--muted)",
                     2: "var(--muted2)",
+                    3: "var(--muted3)",
+                    4: "var(--muted4)",
                     foreground: "var(--muted-foreground)",
                 },
                 accent: {
@@ -111,6 +115,9 @@ const config = {
                 "accordion-up": "accordion-up 0.2s ease-out",
             },
         },
+    },
+    variants: {
+        extend: {},
     },
     plugins: [require("tailwindcss-animate")],
 } satisfies Config;

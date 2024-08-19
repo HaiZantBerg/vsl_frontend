@@ -21,6 +21,8 @@
         --secondary-foreground: #ffffff;
         --muted: #747474;
         --muted2: #2b2b2b;
+        --muted3: #7b7b7b;
+        --muted4: #b7b7b7;
         --muted-foreground: #121212e3;
         --accent: #000000f2;
         --accent-foreground: #ffffff;
@@ -45,7 +47,7 @@
         --chart-5: #ffffff;
     }
 
-    .Light {
+    .light {
         /* Màu components chính */
         --footer: #ffffff;
         --background: #000000;
@@ -77,7 +79,7 @@
         --chart-5: #ffffff;
     }
 
-    .Dark {
+    .dark {
         /* Màu components chính */
         --footer: #9090905c;
         --background: #ffffff;
@@ -109,7 +111,7 @@
         --chart-5: #ffffff;
     }
 
-    .Spring {
+    .spring {
         /* Màu components chính */
         --footer: #ffffff;
         --background: #000000;
@@ -141,7 +143,7 @@
         --chart-5: #ffffff;
     }
 
-    .Summer {
+    .summer {
         /* Màu components chính */
         --footer: #ffffff;
         --background: #000000;
@@ -173,7 +175,7 @@
         --chart-5: #ffffff;
     }
 
-    .Fall {
+    .fall {
         /* Màu components chính */
         --footer: #ffffff;
         --background: #000000;
@@ -205,7 +207,7 @@
         --chart-5: #ffffff;
     }
 
-    .Winter {
+    .winter {
         /* Màu components chính */
         --footer: #ffffff;
         --background: #000000;

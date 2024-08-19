@@ -18,18 +18,24 @@ import {
     TooltipTrigger,
     Tooltip,
 } from "@/components/ui/tooltip";
-import { Avatar, Username } from "../OfUser/userData";
+import { Avatar } from "../OfUser/userData";
 import ThemeToggle from "./ThemeToggle";
+import useSWR from "swr";
+import { getUserData } from "@/axios/getUserData";
+import { accountUrl } from "@/axios/endPoints";
 
 export default function NavBar() {
     const pathname = usePathname();
 
     const noNavBarRoutes = ["login", "register", "reset-password", ""];
 
+    // const { data, isLoading, error } = useSWR(accountUrl, (url) =>
+    // getUserData(url)
+    // );
+
     if (noNavBarRoutes.includes(pathname.split("/")[1])) {
         return null;
     }
-
     return (
         <div className="h-16 bg-foreground flex items-center px-4 gap-6">
             <SideBar />
@@ -41,14 +47,14 @@ export default function NavBar() {
                 VSL
             </Link>
             {/* <NavigationMenu>
-                    <NavigationMenuList>
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger></NavigationMenuTrigger>
-                            <NavigationMenuContent></NavigationMenuContent>
-                        </NavigationMenuItem>
-                        <NavigationMenuItem></NavigationMenuItem>
-                    </NavigationMenuList>
-                </NavigationMenu> */}
+                        <NavigationMenuList>
+                            <NavigationMenuItem>
+                                <NavigationMenuTrigger></NavigationMenuTrigger>
+                                <NavigationMenuContent></NavigationMenuContent>
+                            </NavigationMenuItem>
+                            <NavigationMenuItem></NavigationMenuItem>
+                        </NavigationMenuList>
+                    </NavigationMenu> */}
             <div className="grow flex items-center">
                 <form className="ml-auto w-96 h-9 rounded-xl flex items-center justify-end pr-2 bg-muted-2">
                     <></>
@@ -67,8 +73,8 @@ export default function NavBar() {
                             <Avatar scale={37.5} />
                         </Link>
                     </TooltipTrigger>
-                    <TooltipContent>
-                        <Username />
+                    <TooltipContent className="h-6">
+                        {/* {data && !error && !isLoading ? data[0].username : null} */}
                     </TooltipContent>
                 </Tooltip>
             </TooltipProvider>

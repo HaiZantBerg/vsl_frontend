@@ -22,7 +22,7 @@ export default function Login() {
             </div>
             <div
                 className="flex flex-col gap-6 mt-10 w-[500px] rounded-card shadow-[5px_5px_10px_rgba(0,0,0,0.3)] pb-[25px] pt-[25px] px-[37px] 
-                bg-muted"
+                bg-muted-4"
             >
                 <LoginForm />
                 <p className="text-smpl text-center text-muted-foreground">
