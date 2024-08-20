@@ -1,3 +1,4 @@
+import IcosahedronCanvas from "@/Page-Components/3dObject/Icosahedron";
 import Link from "next/link";
 
 export default function Home() {
@@ -48,7 +49,12 @@ export default function Home() {
                     *tóm tắt về website cũng siêu ngầu*
                 </h3>
             </div>
-            <svg width="100vw" height="770px" viewBox="-100 -100 200 210">
+            <svg
+                width="100vw"
+                height="770px"
+                viewBox="-100 -100 200 210"
+                className="z-10"
+            >
                 {[...Array.from(Array(lineHeight.length).keys())].map(
                     (linePos) => {
                         const paddingBottom = 115 - linePos * 15;
@@ -140,6 +146,9 @@ export default function Home() {
                     strokeWidth={1.5}
                 />
             </svg>
+            <div className="absolute top-[70px] -left-[115px] h-40 aspect-video -z-10">
+                <IcosahedronCanvas shapeColor="red" rotatingSpeed={1.5} />
+            </div>
             <div className=""></div>
         </>
     );
