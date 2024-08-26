@@ -4,15 +4,6 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import SideBar from "./SideBar";
 import {
-    NavigationMenu,
-    NavigationMenuList,
-    NavigationMenuItem,
-    NavigationMenuContent,
-    NavigationMenuTrigger,
-    NavigationMenuLink,
-    ListItem,
-} from "@/components/ui/navBar";
-import {
     TooltipContent,
     TooltipProvider,
     TooltipTrigger,
@@ -26,6 +17,7 @@ import { accountUrl } from "@/axios/endPoints";
 
 export default function NavBar() {
     const pathname = usePathname();
+    const lastSegment = pathname.split("/").at(-1);
 
     const noNavBarRoutes = ["login", "register", "reset-password", ""];
 
@@ -33,9 +25,15 @@ export default function NavBar() {
     // getUserData(url)
     // );
 
-    if (noNavBarRoutes.includes(pathname.split("/")[1])) {
+    if (
+        noNavBarRoutes.includes(pathname.split("/")[1]) ||
+        (pathname.split("/").includes("lesson") &&
+            lastSegment &&
+            /\d/.test(lastSegment))
+    ) {
         return null;
     }
+
     return (
         <div className="h-16 bg-foreground flex items-center px-4 gap-6">
             <SideBar />
@@ -46,15 +44,6 @@ export default function NavBar() {
                 <svg height={50} width={50}></svg>
                 VSL
             </Link>
-            {/* <NavigationMenu>
-                        <NavigationMenuList>
-                            <NavigationMenuItem>
-                                <NavigationMenuTrigger></NavigationMenuTrigger>
-                                <NavigationMenuContent></NavigationMenuContent>
-                            </NavigationMenuItem>
-                            <NavigationMenuItem></NavigationMenuItem>
-                        </NavigationMenuList>
-                    </NavigationMenu> */}
             <div className="grow flex items-center">
                 <form className="ml-auto w-96 h-9 rounded-xl flex items-center justify-end pr-2 bg-muted-2">
                     <></>

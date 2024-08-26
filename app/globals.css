@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-    box-sizing: border-box;
-}
-
 @layer base {
     :root {
         --footer: #9090905c;
@@ -23,6 +19,7 @@
         --muted2: #2b2b2b;
         --muted3: #7b7b7b;
         --muted4: #b7b7b7;
+        --muted5: #d3d3d3;
         --muted-foreground: #121212e3;
         --accent: #000000f2;
         --accent-foreground: #ffffff;
@@ -242,9 +239,13 @@
 
 @layer base {
     * {
-        @apply border-border1;
+        @apply border-border1 box-border;
     }
     body {
         @apply bg-background text-foreground;
     }
+}
+
+.modal-open {
+    overflow-y: hidden;
 }

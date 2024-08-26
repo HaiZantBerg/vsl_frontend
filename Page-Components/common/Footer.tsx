@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 
 export default function Footer() {
     const pathname = usePathname();
+    const lastSegment = pathname.split("/").at(-1);
 
     const noNavBarRoutes = [
         "login",
@@ -12,7 +13,12 @@ export default function Footer() {
         "research-area",
     ];
 
-    if (noNavBarRoutes.includes(pathname.split("/")[1])) {
+    if (
+        noNavBarRoutes.includes(pathname.split("/")[1]) ||
+        (pathname.split("/").includes("lesson") &&
+            lastSegment &&
+            /\d/.test(lastSegment))
+    ) {
         return null;
     }
 

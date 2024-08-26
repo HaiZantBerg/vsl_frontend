@@ -2,9 +2,6 @@ import IcosahedronCanvas from "@/Page-Components/3dObject/Icosahedron";
 import Link from "next/link";
 
 export default function Home() {
-    class Woman {}
-    const woman = new Woman();
-
     const lineHeight = [
         [-50, -25, 15, 40, 40, 15, -25, -50],
         [-35, 7, 30, 25, 25, 30, 7, -35],

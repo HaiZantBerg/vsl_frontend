@@ -14,6 +14,9 @@ const config = {
             sm: "10px",
         },
         extend: {
+            minHeight: {
+                almostfull: "665.6px",
+            },
             height: {
                 roomCard: "550px",
                 almostfull: "665.6px",
@@ -85,6 +88,7 @@ const config = {
                     2: "var(--muted2)",
                     3: "var(--muted3)",
                     4: "var(--muted4)",
+                    5: "var(--muted5)",
                     foreground: "var(--muted-foreground)",
                 },
                 accent: {
