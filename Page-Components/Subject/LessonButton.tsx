@@ -1,7 +1,7 @@
 "use client";
 
 import { easeCubicOut } from "d3-ease";
-import React, { forwardRef, useRef } from "react";
+import React, { forwardRef, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useAnimate } from "framer-motion";
 
@@ -50,9 +50,18 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
         const frontStrokeOpacity = 0.75;
         const lessonAnchorTop = [0, -50, 100, -25, 0, 25, 75, -40, 0, -50];
         const lessonAnchorLeft = [80, 0, -100, -100, 10, -30, 20, 30, 600, 600];
-        const unfinishedLessonColor = "71, 89, 144";
-        const finishLessonColor1 = "36, 224, 43";
-        const finishLessonColor2 = "0, 189, 6";
+        const hoveringStrokeColor = useRef("");
+        const unhoveringStrokeColor = useRef("");
+
+        useEffect(() => {
+            if (isFinished) {
+                hoveringStrokeColor.current = "0, 189, 6";
+                unhoveringStrokeColor.current = "36, 224, 43";
+            } else {
+                hoveringStrokeColor.current = themeColor;
+                unhoveringStrokeColor.current = "71, 89, 144";
+            }
+        }, []);
 
         const handleStartButtonAnimation = () => {
             let animationId: number;
@@ -181,9 +190,7 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
                 animate(
                     `#rear${index}`,
                     {
-                        stroke: isFinished
-                            ? `rgba(${finishLessonColor2}, ${rearStrokeOpacity})`
-                            : `rgba(${themeColor},${rearStrokeOpacity})`,
+                        stroke: `rgba(${hoveringStrokeColor.current},${rearStrokeOpacity})`,
                     },
                     {
                         delay: (index + 4) / 10,
@@ -194,9 +201,7 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
                 animate(
                     `#front${index}`,
                     {
-                        stroke: isFinished
-                            ? `rgba(${finishLessonColor2}, ${frontStrokeOpacity})`
-                            : `rgba(${themeColor}, ${frontStrokeOpacity})`,
+                        stroke: `rgba(${hoveringStrokeColor.current},${frontStrokeOpacity})`,
                     },
                     {
                         delay: (index + 4) / 10,
@@ -240,9 +245,7 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
                 animate(
                     `#rear${index}`,
                     {
-                        stroke: isFinished
-                            ? `rgba(${finishLessonColor1}, ${rearStrokeOpacity})`
-                            : `rgba(${unfinishedLessonColor},${rearStrokeOpacity})`,
+                        stroke: `rgba(${unhoveringStrokeColor.current},${rearStrokeOpacity})`,
                     },
                     {
                         delay: (index + 2) / 10,
@@ -253,9 +256,7 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
                 animate(
                     `#front${index}`,
                     {
-                        stroke: isFinished
-                            ? `rgba(${finishLessonColor1}, ${frontStrokeOpacity})`
-                            : `rgba(${unfinishedLessonColor}, ${frontStrokeOpacity})`,
+                        stroke: `rgba(${unhoveringStrokeColor.current},${frontStrokeOpacity})`,
                     },
                     {
                         delay: (index + 2) / 10,
@@ -339,11 +340,7 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
                                     ref={(el) => {
                                         lineRef.current[index] = el;
                                     }}
-                                    stroke={
-                                        isFinished
-                                            ? `rgba(${finishLessonColor1}, ${rearStrokeOpacity})`
-                                            : `rgba(${unfinishedLessonColor},${rearStrokeOpacity})`
-                                    }
+                                    stroke={`rgba(${unhoveringStrokeColor.current},${rearStrokeOpacity})`}
                                     id={`rear${4 - index}`}
                                     strokeWidth={strokeWidth}
                                     strokeLinecap="round"
@@ -367,11 +364,7 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
                                     ref={(el) => {
                                         lineRef.current[index + 15] = el;
                                     }}
-                                    stroke={
-                                        isFinished
-                                            ? `rgba(${finishLessonColor1}, ${rearStrokeOpacity})`
-                                            : `rgba(${unfinishedLessonColor},${rearStrokeOpacity})`
-                                    }
+                                    stroke={`rgba(${unhoveringStrokeColor.current},${rearStrokeOpacity})`}
                                     id={`rear${9 - index}`}
                                     strokeWidth={strokeWidth}
                                     strokeLinecap="round"
@@ -395,11 +388,7 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
                                     ref={(el) => {
                                         lineRef.current[index + 5] = el;
                                     }}
-                                    stroke={
-                                        isFinished
-                                            ? `rgba(${finishLessonColor1}, ${frontStrokeOpacity})`
-                                            : `rgba(${unfinishedLessonColor},${frontStrokeOpacity})`
-                                    }
+                                    stroke={`rgba(${unhoveringStrokeColor.current},${frontStrokeOpacity})`}
                                     id={`front${9 - index}`}
                                     strokeWidth={strokeWidth}
                                     strokeLinecap="round"
@@ -423,11 +412,7 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
                                     ref={(el) => {
                                         lineRef.current[index + 10] = el;
                                     }}
-                                    stroke={
-                                        isFinished
-                                            ? `rgba(${finishLessonColor1}, ${frontStrokeOpacity})`
-                                            : `rgba(${unfinishedLessonColor},${frontStrokeOpacity})`
-                                    }
+                                    stroke={`rgba(${unhoveringStrokeColor.current},${frontStrokeOpacity})`}
                                     id={`front${4 - index}`}
                                     strokeWidth={strokeWidth}
                                     strokeLinecap="round"
