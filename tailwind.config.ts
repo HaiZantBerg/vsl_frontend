@@ -71,6 +71,8 @@ const config = {
                 background: "var(--background)",
                 foreground: "var(--foreground)",
                 transparent1: "var(--transparent1)",
+                transparent2: "var(--transparent2)",
+                shadow: "var(--shadow)",
                 primary: {
                     DEFAULT: "var(--primary)",
                     foreground: "var(--primary-foreground)",

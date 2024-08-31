@@ -55,18 +55,20 @@ export default function SideBar() {
                         <Link href="/community">Cộng đồng</Link>
                     </div>
                 </div>
-                <div className="*:flex *:items-center">
-                    <div>
+                <div>
+                    <div className="flex items-center">
                         <svg height={iconSize} width={iconSize}></svg>
                         <LogOut className="text-start" />
                     </div>
                     <hr />
                     <Link
                         href={`/user/${"NiQ"}`}
-                        className="inline-flex items-center gap-3 mr-24"
+                        className="flex items-center gap-3 w-fit"
                     >
-                        <Avatar scale={37.5} />
-                        {/* <Username /> */}
+                        <Avatar scale={37.5} />{" "}
+                        <span className="shrink pr-5">
+                            {/* <Username /> */}
+                        </span>
                     </Link>
                 </div>
             </PopoverContent>

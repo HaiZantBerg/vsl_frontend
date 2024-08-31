@@ -25,6 +25,7 @@
         --accent-foreground: #ffffff;
         --destructive: #ffffff;
         --destructive-foreground: #ffffff;
+        --shadow: #4a4a4a83;
         /* Màu components phụ */
         --placeholder: #acacac;
         --roomCard: #f3f3f3;
@@ -36,6 +37,7 @@
         --input: #ffffff;
         --ring1: #494949;
         --transparent1: #0000003b;
+        --transparent2: #d2d2d288;
         /* Biểu đồ */
         --chart-1: #ffffff;
         --chart-2: #ffffff;

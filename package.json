@@ -24,6 +24,7 @@
     "class-variance-authority": "^0.7.0",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
+    "d3-ease": "^3.0.1",
     "embla-carousel-autoplay": "^8.1.8",
     "embla-carousel-react": "^8.1.8",
     "framer-motion": "^11.3.19",
