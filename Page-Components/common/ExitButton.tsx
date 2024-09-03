@@ -7,6 +7,7 @@ import Link from "next/link";
 export default function ExitButton() {
     const [scope, animate] = useAnimate();
     const buttonBorderRgb = useRef<string>();
+    const arrowRef = useRef<SVGSVGElement | null>(null);
 
     useEffect(() => {
         const rootColor = getComputedStyle(document.documentElement)
@@ -20,7 +21,7 @@ export default function ExitButton() {
             String(parseInt(rootColor.slice(4, 6), 16));
     }, []);
 
-    const handleMouseEnter = async () => {
+    const handleMouseEnter = () => {
         animate(
             "#arrow",
             {
@@ -42,8 +43,8 @@ export default function ExitButton() {
                 width: "150px",
             },
             {
-                duration: 0.1,
-                ease: "easeOut",
+                duration: 0.2,
+                ease: "easeIn",
             }
         );
         animate(
@@ -55,7 +56,7 @@ export default function ExitButton() {
         );
     };
 
-    const handleMouseLeave = async () => {
+    const handleMouseLeave = () => {
         animate(
             "#arrow",
             {
@@ -82,10 +83,7 @@ export default function ExitButton() {
     return (
         <Link
             href="/courses"
-            className="border-2 absolute overflow-hidden w-12 h-12 rounded-full font-semibold"
-            style={{
-                borderColor: `rgba(${buttonBorderRgb.current},1)`,
-            }}
+            className="border-2 absolute overflow-hidden w-12 h-12 rounded-full font-semibold left-0 top-0 border-transparent"
             ref={scope}
             onMouseEnter={() => handleMouseEnter()}
             onMouseLeave={() => handleMouseLeave()}
@@ -97,6 +95,7 @@ export default function ExitButton() {
                     viewBox="-10 -10 20 20"
                     id="arrow"
                     className="ml-[13.5px]"
+                    ref={arrowRef}
                 >
                     <path
                         d="M8 0 L-8 0 L0 -7 M0 7 L-8 0"

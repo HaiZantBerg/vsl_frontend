@@ -2,8 +2,8 @@
 
 import React from "react";
 import useSWR from "swr";
-import { courseUrl, topicUrl } from "@/axios/endPoints";
-import { getCourseData, getCourseDetailData } from "@/axios/getCourse";
+import { courseUrl } from "@/axios/endPoints";
+import { getCourseData } from "@/axios/getCourse";
 import Topic from "./Topic";
 
 export interface LessonProps {
@@ -13,6 +13,7 @@ export interface LessonProps {
     content_quantity: number;
     // is_finished: boolean;
     // description: string;
+    // progress: number
 }
 
 export interface ChapterProps {

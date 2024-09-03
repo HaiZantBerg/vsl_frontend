@@ -11,13 +11,12 @@ export default function Footer() {
         "register",
         "reset-password",
         "research-area",
+        "test",
     ];
 
     if (
         noNavBarRoutes.includes(pathname.split("/")[1]) ||
-        (pathname.split("/").includes("lesson") &&
-            lastSegment &&
-            /\d/.test(lastSegment))
+        (pathname.split("/").includes("lesson") && lastSegment)
     ) {
         return null;
     }

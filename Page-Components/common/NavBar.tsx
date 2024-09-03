@@ -19,7 +19,7 @@ export default function NavBar() {
     const pathname = usePathname();
     const lastSegment = pathname.split("/").at(-1);
 
-    const noNavBarRoutes = ["login", "register", "reset-password", ""];
+    const noNavBarRoutes = ["login", "register", "reset-password", "", "test"];
 
     // const { data, isLoading, error } = useSWR(accountUrl, (url) =>
     // getUserData(url)
@@ -27,46 +27,46 @@ export default function NavBar() {
 
     if (
         noNavBarRoutes.includes(pathname.split("/")[1]) ||
-        (pathname.split("/").includes("lesson") &&
-            lastSegment &&
-            /\d/.test(lastSegment))
+        (pathname.split("/").includes("lesson") && lastSegment)
     ) {
         return null;
     }
 
     return (
-        <div className="h-16 bg-foreground flex items-center px-4 gap-6">
-            <SideBar />
-            <Link
-                href="/home"
-                className="text-secondary-foreground text-[25px] font-[650] flex items-center select-none"
-            >
-                <svg height={50} width={50}></svg>
-                VSL
-            </Link>
-            <div className="grow flex items-center">
-                <form className="ml-auto w-96 h-9 rounded-xl flex items-center justify-end pr-2 bg-muted-2">
-                    <></>
-                    <input
-                        type="text"
-                        className="w-11/12 bg-transparent outline-none placeholder-placeholder"
-                        placeholder="Tìm kiếm"
-                    />
-                </form>
+        <div className="h-16">
+            <div className="h-16 fixed bg-foreground flex items-center px-4 gap-6 w-full z-50">
+                <SideBar />
+                <Link
+                    href="/home"
+                    className="text-secondary-foreground text-[25px] font-[650] flex items-center select-none"
+                >
+                    <svg height={50} width={50}></svg>
+                    VSL
+                </Link>
+                <div className="grow flex items-center">
+                    <form className="ml-auto w-96 h-9 rounded-xl flex items-center justify-end pr-2 bg-muted-2">
+                        <></>
+                        <input
+                            type="text"
+                            className="w-11/12 bg-transparent outline-none placeholder-placeholder"
+                            placeholder="Tìm kiếm"
+                        />
+                    </form>
+                </div>
+                <ThemeToggle />
+                <TooltipProvider>
+                    <Tooltip>
+                        <TooltipTrigger>
+                            <Link href={`/user/${"NiQ"}`}>
+                                <Avatar scale={37.5} />
+                            </Link>
+                        </TooltipTrigger>
+                        <TooltipContent className="h-6">
+                            {/* {data && !error && !isLoading ? data[0].username : null} */}
+                        </TooltipContent>
+                    </Tooltip>
+                </TooltipProvider>
             </div>
-            <ThemeToggle />
-            <TooltipProvider>
-                <Tooltip>
-                    <TooltipTrigger>
-                        <Link href={`/user/${"NiQ"}`}>
-                            <Avatar scale={37.5} />
-                        </Link>
-                    </TooltipTrigger>
-                    <TooltipContent className="h-6">
-                        {/* {data && !error && !isLoading ? data[0].username : null} */}
-                    </TooltipContent>
-                </Tooltip>
-            </TooltipProvider>
         </div>
     );
 }

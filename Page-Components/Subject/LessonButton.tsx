@@ -4,6 +4,7 @@ import { easeCubicOut } from "d3-ease";
 import React, { forwardRef, useEffect, useRef } from "react";
 import Link from "next/link";
 import { useAnimate } from "framer-motion";
+import slugify from "slugify";
 
 interface LessonButtonProps {
     isFinished?: boolean;
@@ -290,7 +291,10 @@ export default forwardRef<HTMLAnchorElement, LessonButtonProps>(
             >
                 <Link
                     className="h-[82.5px] aspect-square"
-                    href={`/courses/lesson/${lessonId}`}
+                    href={`/courses/lesson/${slugify(lessonTitle, {
+                        lower: true,
+                        remove: /[*+~.()'"!:@]/g,
+                    })}-${lessonId}`}
                     ref={ref}
                     onMouseEnter={() => {
                         isHoveringAnchor.current = true;
